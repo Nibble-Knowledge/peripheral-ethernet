@@ -1,0 +1,2 @@
+vhdl isim_temp "crc32.vhd"
+vhdl isim_temp "tb_crc.vhd"
