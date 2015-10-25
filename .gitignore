@@ -1,3 +1,4 @@
 vhdl/*/
 vhdl/*.exe
 vhdl/*isim*
+vhdl/*.html
