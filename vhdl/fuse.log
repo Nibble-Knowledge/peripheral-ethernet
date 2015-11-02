@@ -1,24 +1,35 @@
-Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -o C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/tb_receiver_isim_beh.exe -prj C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/tb_receiver_beh.prj work.tb_receiver 
+Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -o C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/ethernet/tb_ethernet_isim_beh.exe -prj C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/ethernet/tb_ethernet_beh.prj work.tb_ethernet 
 ISim P.20131013 (signature 0x7708f090)
-Number of CPUs detected in this system: 4
-Turning on mult-threading, number of parallel sub-compilation jobs: 8 
+Number of CPUs detected in this system: 8
+Turning on mult-threading, number of parallel sub-compilation jobs: 16 
 Determining compilation order of HDL files
-Parsing VHDL file "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/memory.vhd" into library work
-Parsing VHDL file "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/crc32.vhd" into library work
-Parsing VHDL file "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/receiver.vhd" into library work
-WARNING:HDLCompiler:946 - "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/receiver.vhd" Line 78: Actual for formal port reset is neither a static name nor a globally static expression
-Parsing VHDL file "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/tb_receiver.vhd" into library work
+Parsing VHDL file "C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/ethernet/crc32.vhd" into library work
+Parsing VHDL file "C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/ethernet/transmitter.vhd" into library work
+Parsing VHDL file "C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/ethernet/receiver.vhd" into library work
+Parsing VHDL file "C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/ethernet/ethernet.vhd" into library work
+Parsing VHDL file "C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/ethernet/async_ram.vhd" into library work
+Parsing VHDL file "C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/ethernet/tb_ethernet.vhd" into library work
+WARNING:HDLCompiler:946 - "C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/ethernet/tb_ethernet.vhd" Line 143: Actual for formal port address is neither a static name nor a globally static expression
+WARNING:HDLCompiler:946 - "C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/ethernet/tb_ethernet.vhd" Line 145: Actual for formal port cs is neither a static name nor a globally static expression
+WARNING:HDLCompiler:946 - "C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/ethernet/tb_ethernet.vhd" Line 146: Actual for formal port we is neither a static name nor a globally static expression
+WARNING:HDLCompiler:946 - "C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/ethernet/tb_ethernet.vhd" Line 151: Actual for formal port address is neither a static name nor a globally static expression
+WARNING:HDLCompiler:946 - "C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/ethernet/tb_ethernet.vhd" Line 153: Actual for formal port cs is neither a static name nor a globally static expression
+WARNING:HDLCompiler:946 - "C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/ethernet/tb_ethernet.vhd" Line 154: Actual for formal port we is neither a static name nor a globally static expression
 Starting static elaboration
 Completed static elaboration
 Compiling package standard
 Compiling package std_logic_1164
+Compiling package std_logic_arith
+Compiling package std_logic_unsigned
 Compiling package numeric_std
 Compiling architecture behavioral of entity crc [crc_default]
-Compiling architecture behavioral of entity memory [\memory(14)\]
-Compiling architecture behavioral of entity receiver [\receiver(5)\]
-Compiling architecture behavior of entity tb_receiver
+Compiling architecture behavioral of entity receiver [receiver_default]
+Compiling architecture behavioral of entity transmitter [transmitter_default]
+Compiling architecture behavioral of entity ethernet [ethernet_default]
+Compiling architecture rtl of entity ram_sp_ar_aw [\ram_sp_ar_aw(8,15)\]
+Compiling architecture behavior of entity tb_ethernet
 Time Resolution for simulation is 1ps.
-Compiled 10 VHDL Units
-Built simulation executable C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/tb_receiver_isim_beh.exe
-Fuse Memory Usage: 35548 KB
-Fuse CPU Usage: 640 ms
+Compiled 16 VHDL Units
+Built simulation executable C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/ethernet/tb_ethernet_isim_beh.exe
+Fuse Memory Usage: 37400 KB
+Fuse CPU Usage: 686 ms

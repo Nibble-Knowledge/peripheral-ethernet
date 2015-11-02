@@ -1,28 +1,12 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date:    14:38:57 10/16/2015 
--- Design Name: 
--- Module Name:    transmitter - Behavioral 
--- Project Name: 
--- Target Devices: 
--- Tool versions: 
--- Description: 
---
--- Dependencies: 
---
--- Revision: 
--- Revision 0.01 - File Created
--- Additional Comments: 
---
+-- uhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh hope that the bus timing isn't too fucked up
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx primitives in this code.
@@ -30,142 +14,285 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity transmitter is
-    Port ( clk : in  STD_LOGIC;
+    Port ( --Intra-component signals
+	        clk : in  STD_LOGIC;
+           ether_clk : in  STD_LOGIC;
            reset : in  STD_LOGIC;
-			  trigger : in STD_LOGIC;
-			  data_receiving : in STD_LOGIC;
+           writing : in  STD_LOGIC;
            data : in  STD_LOGIC_VECTOR (3 downto 0);
-           ethernet : out  STD_LOGIC);
+           ready : out  STD_LOGIC;
+           ethernet : out  STD_LOGIC;
+			  ethertx_enable : out  STD_LOGIC;
+			  
+			  --External memory connections
+           ram_addr : out  STD_LOGIC_VECTOR (10 downto 0);
+           ram_w1r0 : out  STD_LOGIC;
+			  ram_cs : out  STD_LOGIC;
+           ram_data_in : in  STD_LOGIC_VECTOR (7 downto 0);
+			  ram_data_out: out  STD_LOGIC_VECTOR (7 downto 0));
 end transmitter;
 
 architecture Behavioral of transmitter is
 	component crc
-		Port (	trigger : in  STD_LOGIC;
+		Port (	clk : in  STD_LOGIC;
 					reset : in STD_LOGIC;
 					frame_bit : in  STD_LOGIC;
-					crc32 : inout  STD_LOGIC_VECTOR (31 downto 0));
-	end component;
-	signal crc_trigger : std_logic;
-	signal crc32 : std_logic_vector (31 downto 0);
-	
-	component memory
-		Generic (
-			ADDRESS_WIDTH	: integer := 14
+					crc32_out : inout  STD_LOGIC_VECTOR (31 downto 0)
 		);
-		Port (	Clock 	: in  STD_LOGIC;
-					Reset 	: in  STD_LOGIC;
-					DataIn 	: in  STD_LOGIC;
-					Address	: in  STD_LOGIC_VECTOR (ADDRESS_WIDTH - 1 downto 0);
-					WriteEn	: in  STD_LOGIC;
-					Enable 	: in  STD_LOGIC;
-					DataOut 	: out STD_LOGIC);
 	end component;
+	signal crc32_clk : std_logic;
+	signal crc32_reset : std_logic;
+	signal crc32_in : std_logic;
+	signal crc32_out : std_logic_vector (31 downto 0);
 	
-	type TXSTATE is (IDLE, DATARX, SYNCTX, ETHERTX, CRCTX);
+	--Memory stuff
+	signal mem_addr : unsigned (10 downto 0);
+	signal mem_max : unsigned (10 downto 0);
+	signal mem_w1r0 : std_logic;
+	signal mem_pos : unsigned (2 downto 0);
+	
+	constant MSB_STOP : std_logic_vector (3 downto 0) := "1110";
+	
+	type TXSTATE is (IDLE, WRITINGLSB, READYLSB, DATARXLSB, WRITINGMSB, READYMSB, DATARXMSB, ZEROFLUSH, RAMREADY, FRAMESYNC1, FRAMESYNC0, FRAMESYNCEND, NOTFRAMETX, FRAMETX, NOTFRAMECRC, FRAMECRC, SHUTDOWN);
 	signal CurrState : TXSTATE;
-	
-	signal tx_count : std_logic_vector(1 downto 0);	--64 MHz clock / 20 MHz transfer rate ~= 3
-	signal ether_trigger : std_logic;	--Triggers at a rate of approx 20MHz
-	
-	--signal frame : std_logic_vector (12047 downto 0);	--2 bytes length/type + 1500 bytes MAX data + 4 bytes FCS
-	signal frame_size : std_logic_vector (13 downto 0);	--Represent up to 1506 bytes of frame
-	
-	signal sync_count : std_logic_vector(5 downto 0);	--63 cycles of sync, exluding the final 1 (i.e. 10101011)
-	signal manchester_inverter : std_logic;
+		
+	signal manual_reset : std_logic;
+	signal my_clk : std_logic;
+	signal sync_count : unsigned (4 downto 0);
+	signal buffer_out : std_logic_vector (31 downto 0);
 begin
 	--Map the CRC component
 	FCS : crc port map (
-		trigger => crc_trigger,
-		reset => reset,
-		frame_bit => ethernet,
-		crc32 => crc32
+		clk => crc32_clk,
+		reset => crc32_reset,
+		frame_bit => crc32_in,
+		crc32_out => crc32_out
 	);
 	
-	--Map the RAM component
-	RAM : memory port map (
-		Clock => clk,
-		Reset => reset,
-		DataIn => ethernet,
-		Address => bit_counter,
-		WriteEn => bit_arrived,
-		Enable => '1',
-		DataOut => open
-	);
+	--Map internal flags 'cause VHDL really needs these
+	ram_addr <= std_logic_vector(mem_addr);
+	ram_w1r0 <= mem_w1r0;
 	
-	--Ethernet trigger generator - essentially a crappy clock divider
-	--Activate only we're in the transmission states
-	process(clk, reset)
+	--Set the clock to be clk when writing or ether_clk when reading
+	my_clk <= (clk and mem_w1r0) or (ether_clk and not mem_w1r0);
+	
+	--crc32 reset depends on the external reset and manual reset
+	crc32_reset <= reset or manual_reset;
+	
+	process(my_clk, reset, manual_reset)
 	begin
-		if reset = '1' then
-			tx_count <= "00";
-			ether_trigger <= '0';
-		else
+		--Reset the signals to their defaults
+		if reset = '1' or manual_reset = '1' then
+			CurrState <= IDLE;
+			ready <= 'Z';
+			manual_reset <= '0';
+			sync_count <= to_unsigned(31, sync_count'length);	--31 '10' + 1 '11' sync signals
+			ethernet <= '0';
+			ethertx_enable <= '0';
+			
+			crc32_clk <= '0';
+			
+			mem_addr <= to_unsigned(2**mem_addr'length-1, mem_addr'length);
+			mem_w1r0 <= '1';
+			--mem_pos <= to_unsigned(0, mem_pos'length);
+			ram_cs <= '1';
+		
+		--Everything else
+		elsif rising_edge(my_clk) then
 			case CurrState is
-				when SYNCTX|ETHERTX|CRCTX =>
-					if tx_count = "10" then
-						ether_trigger <= not ether_trigger;
-						tx_count <= "00";
-					else
-						tx_count <= std_logic_vector(unsigned(tx_count) + 1);
+				when IDLE =>	--wait for computer to start transferring data
+					--Computer transfer data when write flag goes high
+					if writing = '1' then
+						CurrState <= WRITINGLSB;
 					end if;
 					
-				when others =>
-					null;
-			end case;
-		end if;
-	end process;
-	
-	--Data listener and transmitter
-	process(reset, trigger, ether_trigger)
-	begin
-		if reset = '1' then
-			crc_trigger <= '0';
-			--frame <= (others => '0');
-		else
-			case CurrState is
-				when IDLE =>
-					ethernet <= '0';	--Reset the ethernet bit here
-					frame_size <= (others => '0');	--also reset the frame size here
+				when WRITINGLSB =>	--wait for computer to raise write flag
+					if writing = '1' then
+						ready <= '1';
+						CurrState <= READYLSB;
+					end if;
+					
+				when READYLSB =>	--blank state - transition to the next
+					--also increment address position
+					mem_addr <= mem_addr + 1;
+					
+					CurrState <= DATARXLSB;
 				
-					--When we're receiving data, go to the next state
-					if data_receiving = '1' then
-						CurrState <= DATARX;
+				when DATARXLSB =>	--Computer is transfering LSB of data to the peripheral
+					--Place the data in the memory and set ready flag low
+					ram_data_out(3 downto 0) <= data;
+					ready <= 'Z';
+					
+					--Only when the write flag goes low is when we can transition to the next state
+					if writing = '0' then
+						CurrState <= WRITINGMSB;
 					end if;
 					
-				when DATARX =>
-					--Buffer the data when it's triggered
-					if trigger'event then
-						frame <= frame(12043 downto 0) & data;
-						frame_size <= std_logic_vector(unsigned(frame_size) + 1);
+				when WRITINGMSB =>	--wait for computer to raise write flag
+					if writing = '1' then
+						ready <= '1';
+						CurrState <= READYMSB;
+					end if;
 					
-					--If the data receive flag goes low...
-					elsif data_receiving = '0' then
-						--If the frame size is a multiple of 8 (i.e. we have whole bytes), go to the next state
-						if frame_size(2 downto 0) = "000" then
-							CurrState <= SYNCTX;
-							sync_count <= (others => '1');	--Set the sync count to 63 bits
-							
-						--Otherwise, something horrible happened - give up and go to the idle state
-						else
-							CurrState <= IDLE;
+				when READYMSB =>	--blank state - transition to the next
+					CurrState <= DATARXMSB;
+					
+				when DATARXMSB =>	--Computer is transferring MSB of data to the peripheral
+					--If the received data is equal to MSB_STOP, this is a stop symbol
+					--Start syncing, set maximum frame size, and reset current frame size
+					if data = MSB_STOP then
+						CurrState <= ZEROFLUSH;
+						mem_max <= mem_addr + 3;	--need to append 4 bytes of zeros - 1
+						mem_w1r0 <= '0';	--temporarily disable writing
+						mem_addr <= mem_addr - 1;
+						ram_cs <= '0';
+					
+					--Otherwise, place data in memory
+					else
+						ram_data_out(7 downto 4) <= data;
+						
+						--Only when the write flag goes low is when we can transition to the previous state
+						if writing = '0' then
+							CurrState <= WRITINGLSB;
 						end if;
 					end if;
 					
-				when SYNCTX =>	--Send out a synchronization signal through the ethernet
-					--If this is the 64th bit, send out a '1' and go to the next state
-					if sync_count = "00000" then
-						ethernet <= '1';
-						CurrState <= ETHERTX;
-						manchester_inverter <= '1';
+					--Set ready flag low regardless of state
+					ready <= 'Z';
 					
-					--Otherwise, send out the opposite of the current bit and decrement the sync count
+				when ZEROFLUSH =>	--append 4 bytes of zeros at the end to pass to the CRC
+					--When the memory address is equal to the maximum, all data has been written to the memory
+					--Disable writing, reset the memory address, and go to the next state
+					if mem_addr = mem_max then
+						mem_addr <= to_unsigned(0, mem_addr'length);
+						mem_pos <= to_unsigned(0, mem_pos'length);
+						mem_w1r0 <= '0';
+						ram_cs <= '0';
+						CurrState <= RAMREADY;
+					
+					--Otherwise, write zeros to the current address and increment it
 					else
-						ethernet <= not ethernet;
-						sync_count <= std_logic_vector(unsigned(sync_count) - 1);
+						mem_w1r0 <= '1';
+						ram_data_out <= "00000000";
+						mem_addr <= mem_addr + 1;
+						ram_cs <= '1';
 					end if;
 				
-				when ETHERTX =>	--Send data through the ethernet
+				when RAMREADY =>	--give some time for the RAM to stabilize
+					ram_cs <= '1';
+					CurrState <= FRAMESYNC1;
+				
+				when FRAMESYNC1 =>	--Send out a '1' sync signal
+					ethernet <= '1';
 					
+					--Don't forget to enable ethernet transmission
+					ethertx_enable <= '1';
+					
+					--If we reached the last memory position, increment the memory address
+					if mem_pos = 7 then
+						mem_addr <= mem_addr + 1;
+					end if;
+					
+					--Copy a value from memory to the buffer and CRC controller, LSB first
+					buffer_out <= buffer_out(30 downto 0) & ram_data_in(to_integer(mem_pos));
+					crc32_in <= ram_data_in(to_integer(mem_pos));
+					crc32_clk <= '1';
+					mem_pos <= mem_pos + 1;
+					
+					--If the sync counter expired, go to the last sync state
+					if sync_count = 0 then
+						CurrState <= FRAMESYNCEND;
+						
+					--Otherwise, decrement the counter and go to the next sync state
+					else
+						sync_count <= sync_count - 1;
+						CurrState <= FRAMESYNC0;
+					end if;
+					
+				when FRAMESYNC0 =>	--Send out a '0' sync signal
+					ethernet <= '0';
+					
+					--Lower CRC clock
+					crc32_clk <= '0';
+					
+					--Return to the previous state
+					CurrState <= FRAMESYNC1;
+					
+				when FRAMESYNCEND =>	--end of the sync period
+					--Send out a final '1' to indicate end of sync
+					ethernet <= '1';
+					
+					--Lower CRC clock
+					crc32_clk <= '0';
+					
+					--Bring in the next value
+					--Done automatically!
+					
+					--Go to the next state
+					CurrState <= NOTFRAMETX;
+					
+				when NOTFRAMETX =>	--send the opposite of the frame
+					--Turn CRC clock off
+					crc32_clk <= '0';
+					
+					--Send out the negated MSB from the buffer and go to the next state
+					ethernet <= not buffer_out(31);
+					CurrState <= FRAMETX;
+				
+				when FRAMETX =>	--send the bit
+					--Send the MSB from the buffer to the ethernet
+					ethernet <= buffer_out(31);
+					
+					--Pass the *current* bit to the CRC module and turn on the clock
+					crc32_in <= ram_data_in(to_integer(mem_pos));
+					crc32_clk <= '1';
+					
+					--If the memory position is at 7...
+					if mem_pos = 7 then
+						--If the memory address reached the maximum address, start transmitting the CRC
+						if mem_addr = mem_max then
+							sync_count <= to_unsigned(31, sync_count'length);	--use the sync count to count the number of CRC bits - remember! We're going MSB to LSB, so count backwards
+							CurrState <= NOTFRAMECRC;
+							
+						--Otherwise, reset the position and increment the memory address
+						else
+							mem_pos <= to_unsigned(0, mem_pos'length);
+							mem_addr <= mem_addr + 1;
+							CurrState <= NOTFRAMETX;
+						end if;
+						
+					--Otherwise, increment the memory position and go to the next bit
+					else
+						mem_pos <= mem_pos + 1;
+						CurrState <= NOTFRAMETX;
+					end if;
+					
+					--Place the new bit at the end of the buffer
+					buffer_out <= buffer_out(30 downto 0) & ram_data_in(to_integer(mem_pos));
+					
+				when NOTFRAMECRC =>	--transmit the negated CRC bit
+					ethernet <= not crc32_out(to_integer(sync_count));
+					CurrState <= FRAMECRC;
+					
+				when FRAMECRC =>	--transmit the CRC bit
+					ethernet <= crc32_out(to_integer(sync_count));
+					
+					--If the counter expired, we transmitted everything! "Shut down"
+					--REMEMBER! We are transmitting the checksum MSB first.
+					if sync_count = 0 then
+						CurrState <= SHUTDOWN;
+						
+					--Otherwise, increment the counter and return to the previous state
+					else
+						sync_count <= sync_count - 1;
+						CurrState <= NOTFRAMECRC;
+					end if;
+					
+				when SHUTDOWN	=> --allow last bit to be transmitted, then reset
+					manual_reset <= '1';
+					
+				when others =>
+					--this shouldn't happen
 			end case;
 		end if;
 	end process;

@@ -41,10 +41,10 @@ ARCHITECTURE behavior OF tb_crc IS
  
     COMPONENT crc
     PORT(
-         trigger : IN  std_logic;
+         clk : IN  std_logic;
          reset : IN  std_logic;
          frame_bit : IN  std_logic;
-         crc32 : INOUT  std_logic_vector(31 downto 0)
+         crc32_out : INOUT  std_logic_vector(31 downto 0)
         );
     END COMPONENT;
     
@@ -63,10 +63,10 @@ BEGIN
  
 	-- Instantiate the Unit Under Test (UUT)
    uut: crc PORT MAP (
-          trigger => trigger,
+          clk => trigger,
           reset => reset,
           frame_bit => frame_bit,
-          crc32 => crc32
+          crc32_out => crc32
         );
 
 -- Stimulus process
@@ -82,8 +82,10 @@ BEGIN
 		for I in 79 downto 0 loop
 			wait for 50ns;
 			frame_bit <= TEST(I);
-			wait for 50ns;
-			trigger <= not trigger;
+			wait for 25ns;
+			trigger <= '1';
+			wait for 25ns;
+			trigger <= '0';
 		end loop;
 		
       wait;

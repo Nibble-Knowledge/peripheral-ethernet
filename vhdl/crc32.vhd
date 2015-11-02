@@ -33,11 +33,11 @@ entity crc is
     Port ( clk : in  STD_LOGIC;
            reset : in STD_LOGIC;
            frame_bit : in  STD_LOGIC;
-           crc32 : inout  STD_LOGIC_VECTOR (31 downto 0));
+           crc32_out : out  STD_LOGIC_VECTOR (31 downto 0));
 end crc;
 
 architecture Behavioral of crc is
-
+	signal crc32 : std_logic_vector (31 downto 0);
 begin
 	process(clk, reset)
 	begin
@@ -78,6 +78,8 @@ begin
 			crc32(0) <= frame_bit xor crc32(31);
 		end if;
 	end process;
+	
+	crc32_out <= crc32;
 
 end Behavioral;
 

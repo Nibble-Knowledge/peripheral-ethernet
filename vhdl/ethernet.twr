@@ -1,0 +1,268 @@
+--------------------------------------------------------------------------------
+Release 14.7 Trace  (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe -intstyle ise -v 3 -s 4
+-n 3 -fastpaths -xml ethernet.twx ethernet.ncd -o ethernet.twr ethernet.pcf
+
+Design file:              ethernet.ncd
+Physical constraint file: ethernet.pcf
+Device,package,speed:     xc3s250e,vq100,-4 (PRODUCTION 1.27 2013-10-13)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:2698 - No timing constraints found, doing default enumeration.
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+INFO:Timing:3390 - This architecture does not support a default System Jitter 
+   value, please add SYSTEM_JITTER constraint to the UCF to modify the Clock 
+   Uncertainty calculation.
+INFO:Timing:3389 - This architecture does not support 'Discrete Jitter' and 
+   'Phase Error' calculations, these terms will be zero in the Clock 
+   Uncertainty calculation.  Please make appropriate modification to 
+   SYSTEM_JITTER to account for the unsupported Discrete Jitter and Phase 
+   Error.
+
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Setup/Hold to clock clk
+------------+------------+------------+------------------+--------+
+            |Max Setup to|Max Hold to |                  | Clock  |
+Source      | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
+------------+------------+------------+------------------+--------+
+data<0>     |    4.454(R)|    3.079(R)|TX/my_clk         |   0.000|
+data<1>     |    5.547(R)|    2.352(R)|TX/my_clk         |   0.000|
+data<2>     |    5.982(R)|    2.433(R)|TX/my_clk         |   0.000|
+data<3>     |    5.108(R)|    2.005(R)|TX/my_clk         |   0.000|
+enabled     |    6.100(R)|    2.794(R)|RX/my_clk         |   0.000|
+            |    8.018(R)|    3.301(R)|TX/my_clk         |   0.000|
+ethernet_in |    3.796(R)|    2.621(R)|RX/my_clk         |   0.000|
+ram1_data<0>|   -0.375(R)|    2.333(R)|RX/my_clk         |   0.000|
+ram1_data<1>|   -1.168(R)|    2.967(R)|RX/my_clk         |   0.000|
+ram1_data<2>|   -0.527(R)|    2.454(R)|RX/my_clk         |   0.000|
+ram1_data<3>|   -0.673(R)|    2.570(R)|RX/my_clk         |   0.000|
+ram1_data<4>|   -1.076(R)|    2.894(R)|RX/my_clk         |   0.000|
+ram1_data<5>|   -1.100(R)|    2.912(R)|RX/my_clk         |   0.000|
+ram1_data<6>|   -0.770(R)|    2.648(R)|RX/my_clk         |   0.000|
+ram1_data<7>|   -0.674(R)|    2.570(R)|RX/my_clk         |   0.000|
+ram2_data<0>|    0.351(R)|    2.434(R)|TX/my_clk         |   0.000|
+ram2_data<1>|    1.136(R)|    1.807(R)|TX/my_clk         |   0.000|
+ram2_data<2>|    0.833(R)|    2.049(R)|TX/my_clk         |   0.000|
+ram2_data<3>|    0.938(R)|    1.965(R)|TX/my_clk         |   0.000|
+ram2_data<4>|    0.332(R)|    2.450(R)|TX/my_clk         |   0.000|
+ram2_data<5>|    0.474(R)|    2.336(R)|TX/my_clk         |   0.000|
+ram2_data<6>|    0.283(R)|    2.489(R)|TX/my_clk         |   0.000|
+ram2_data<7>|    0.361(R)|    2.427(R)|TX/my_clk         |   0.000|
+read_ok     |    5.345(R)|    2.666(R)|RX/my_clk         |   0.000|
+reset       |    4.404(R)|    2.213(R)|RX/my_clk         |   0.000|
+            |    2.309(R)|    2.602(R)|TX/my_clk         |   0.000|
+write_ok    |    6.012(R)|    3.649(R)|TX/my_clk         |   0.000|
+------------+------------+------------+------------------+--------+
+
+Setup/Hold to clock ether_clk
+------------+------------+------------+------------------+--------+
+            |Max Setup to|Max Hold to |                  | Clock  |
+Source      | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
+------------+------------+------------+------------------+--------+
+data<0>     |    4.493(R)|    3.030(R)|TX/my_clk         |   0.000|
+data<1>     |    5.586(R)|    2.303(R)|TX/my_clk         |   0.000|
+data<2>     |    6.021(R)|    2.384(R)|TX/my_clk         |   0.000|
+data<3>     |    5.147(R)|    1.956(R)|TX/my_clk         |   0.000|
+enabled     |    6.119(R)|    2.770(R)|RX/my_clk         |   0.000|
+            |    8.057(R)|    3.252(R)|TX/my_clk         |   0.000|
+ethernet_in |    3.815(R)|    2.597(R)|RX/my_clk         |   0.000|
+ram1_data<0>|   -0.356(R)|    2.309(R)|RX/my_clk         |   0.000|
+ram1_data<1>|   -1.149(R)|    2.943(R)|RX/my_clk         |   0.000|
+ram1_data<2>|   -0.508(R)|    2.430(R)|RX/my_clk         |   0.000|
+ram1_data<3>|   -0.654(R)|    2.546(R)|RX/my_clk         |   0.000|
+ram1_data<4>|   -1.057(R)|    2.870(R)|RX/my_clk         |   0.000|
+ram1_data<5>|   -1.081(R)|    2.888(R)|RX/my_clk         |   0.000|
+ram1_data<6>|   -0.751(R)|    2.624(R)|RX/my_clk         |   0.000|
+ram1_data<7>|   -0.655(R)|    2.546(R)|RX/my_clk         |   0.000|
+ram2_data<0>|    0.390(R)|    2.385(R)|TX/my_clk         |   0.000|
+ram2_data<1>|    1.175(R)|    1.758(R)|TX/my_clk         |   0.000|
+ram2_data<2>|    0.872(R)|    2.000(R)|TX/my_clk         |   0.000|
+ram2_data<3>|    0.977(R)|    1.916(R)|TX/my_clk         |   0.000|
+ram2_data<4>|    0.371(R)|    2.401(R)|TX/my_clk         |   0.000|
+ram2_data<5>|    0.513(R)|    2.287(R)|TX/my_clk         |   0.000|
+ram2_data<6>|    0.322(R)|    2.440(R)|TX/my_clk         |   0.000|
+ram2_data<7>|    0.400(R)|    2.378(R)|TX/my_clk         |   0.000|
+read_ok     |    5.364(R)|    2.642(R)|RX/my_clk         |   0.000|
+reset       |    4.423(R)|    2.189(R)|RX/my_clk         |   0.000|
+            |    2.348(R)|    2.553(R)|TX/my_clk         |   0.000|
+write_ok    |    6.051(R)|    3.600(R)|TX/my_clk         |   0.000|
+------------+------------+------------+------------------+--------+
+
+Clock clk to Pad
+--------------+------------+------------------+--------+
+              | clk (edge) |                  | Clock  |
+Destination   |   to PAD   |Internal Clock(s) | Phase  |
+--------------+------------+------------------+--------+
+data<0>       |   13.290(R)|RX/my_clk         |   0.000|
+data<1>       |   11.975(R)|RX/my_clk         |   0.000|
+data<2>       |   12.059(R)|RX/my_clk         |   0.000|
+data<3>       |   11.981(R)|RX/my_clk         |   0.000|
+ethernet_out  |   11.850(R)|TX/my_clk         |   0.000|
+ethertx_enable|   11.611(R)|TX/my_clk         |   0.000|
+ram1_addr<0>  |   10.089(R)|RX/my_clk         |   0.000|
+ram1_addr<1>  |   10.327(R)|RX/my_clk         |   0.000|
+ram1_addr<2>  |   12.261(R)|RX/my_clk         |   0.000|
+ram1_addr<3>  |   10.124(R)|RX/my_clk         |   0.000|
+ram1_addr<4>  |   10.938(R)|RX/my_clk         |   0.000|
+ram1_addr<5>  |   10.105(R)|RX/my_clk         |   0.000|
+ram1_addr<6>  |    9.779(R)|RX/my_clk         |   0.000|
+ram1_addr<7>  |    9.825(R)|RX/my_clk         |   0.000|
+ram1_addr<8>  |   11.539(R)|RX/my_clk         |   0.000|
+ram1_addr<9>  |   11.273(R)|RX/my_clk         |   0.000|
+ram1_addr<10> |   11.655(R)|RX/my_clk         |   0.000|
+ram1_cs       |   10.798(R)|RX/my_clk         |   0.000|
+ram1_data<0>  |   12.322(R)|RX/my_clk         |   0.000|
+ram1_data<1>  |   11.843(R)|RX/my_clk         |   0.000|
+ram1_data<2>  |   11.747(R)|RX/my_clk         |   0.000|
+ram1_data<3>  |   11.629(R)|RX/my_clk         |   0.000|
+ram1_data<4>  |   12.126(R)|RX/my_clk         |   0.000|
+ram1_data<5>  |   12.872(R)|RX/my_clk         |   0.000|
+ram1_data<6>  |   11.662(R)|RX/my_clk         |   0.000|
+ram1_data<7>  |   12.193(R)|RX/my_clk         |   0.000|
+ram1_r1w0     |   11.037(R)|RX/my_clk         |   0.000|
+ram2_addr<0>  |   12.055(R)|TX/my_clk         |   0.000|
+ram2_addr<1>  |   12.019(R)|TX/my_clk         |   0.000|
+ram2_addr<2>  |   12.522(R)|TX/my_clk         |   0.000|
+ram2_addr<3>  |   11.555(R)|TX/my_clk         |   0.000|
+ram2_addr<4>  |   12.134(R)|TX/my_clk         |   0.000|
+ram2_addr<5>  |   11.647(R)|TX/my_clk         |   0.000|
+ram2_addr<6>  |   12.155(R)|TX/my_clk         |   0.000|
+ram2_addr<7>  |   12.182(R)|TX/my_clk         |   0.000|
+ram2_addr<8>  |   12.215(R)|TX/my_clk         |   0.000|
+ram2_addr<9>  |   12.191(R)|TX/my_clk         |   0.000|
+ram2_addr<10> |   12.867(R)|TX/my_clk         |   0.000|
+ram2_cs       |   12.355(R)|TX/my_clk         |   0.000|
+ram2_data<0>  |   12.358(R)|TX/my_clk         |   0.000|
+ram2_data<1>  |   12.995(R)|TX/my_clk         |   0.000|
+ram2_data<2>  |   12.389(R)|TX/my_clk         |   0.000|
+ram2_data<3>  |   12.862(R)|TX/my_clk         |   0.000|
+ram2_data<4>  |   12.608(R)|TX/my_clk         |   0.000|
+ram2_data<5>  |   12.615(R)|TX/my_clk         |   0.000|
+ram2_data<6>  |   12.415(R)|TX/my_clk         |   0.000|
+ram2_data<7>  |   12.357(R)|TX/my_clk         |   0.000|
+ram2_r1w0     |   13.225(R)|TX/my_clk         |   0.000|
+ready         |   11.197(R)|RX/my_clk         |   0.000|
+--------------+------------+------------------+--------+
+
+Clock ether_clk to Pad
+--------------+------------+------------------+--------+
+              | clk (edge) |                  | Clock  |
+Destination   |   to PAD   |Internal Clock(s) | Phase  |
+--------------+------------+------------------+--------+
+data<0>       |   13.266(R)|RX/my_clk         |   0.000|
+data<1>       |   11.951(R)|RX/my_clk         |   0.000|
+data<2>       |   12.035(R)|RX/my_clk         |   0.000|
+data<3>       |   11.957(R)|RX/my_clk         |   0.000|
+ethernet_out  |   11.801(R)|TX/my_clk         |   0.000|
+ethertx_enable|   11.562(R)|TX/my_clk         |   0.000|
+ram1_addr<0>  |   10.065(R)|RX/my_clk         |   0.000|
+ram1_addr<1>  |   10.303(R)|RX/my_clk         |   0.000|
+ram1_addr<2>  |   12.237(R)|RX/my_clk         |   0.000|
+ram1_addr<3>  |   10.100(R)|RX/my_clk         |   0.000|
+ram1_addr<4>  |   10.914(R)|RX/my_clk         |   0.000|
+ram1_addr<5>  |   10.081(R)|RX/my_clk         |   0.000|
+ram1_addr<6>  |    9.755(R)|RX/my_clk         |   0.000|
+ram1_addr<7>  |    9.801(R)|RX/my_clk         |   0.000|
+ram1_addr<8>  |   11.515(R)|RX/my_clk         |   0.000|
+ram1_addr<9>  |   11.249(R)|RX/my_clk         |   0.000|
+ram1_addr<10> |   11.631(R)|RX/my_clk         |   0.000|
+ram1_cs       |   10.774(R)|RX/my_clk         |   0.000|
+ram1_data<0>  |   12.298(R)|RX/my_clk         |   0.000|
+ram1_data<1>  |   11.819(R)|RX/my_clk         |   0.000|
+ram1_data<2>  |   11.723(R)|RX/my_clk         |   0.000|
+ram1_data<3>  |   11.605(R)|RX/my_clk         |   0.000|
+ram1_data<4>  |   12.102(R)|RX/my_clk         |   0.000|
+ram1_data<5>  |   12.848(R)|RX/my_clk         |   0.000|
+ram1_data<6>  |   11.638(R)|RX/my_clk         |   0.000|
+ram1_data<7>  |   12.169(R)|RX/my_clk         |   0.000|
+ram1_r1w0     |   11.013(R)|RX/my_clk         |   0.000|
+ram2_addr<0>  |   12.006(R)|TX/my_clk         |   0.000|
+ram2_addr<1>  |   11.970(R)|TX/my_clk         |   0.000|
+ram2_addr<2>  |   12.473(R)|TX/my_clk         |   0.000|
+ram2_addr<3>  |   11.506(R)|TX/my_clk         |   0.000|
+ram2_addr<4>  |   12.085(R)|TX/my_clk         |   0.000|
+ram2_addr<5>  |   11.598(R)|TX/my_clk         |   0.000|
+ram2_addr<6>  |   12.106(R)|TX/my_clk         |   0.000|
+ram2_addr<7>  |   12.133(R)|TX/my_clk         |   0.000|
+ram2_addr<8>  |   12.166(R)|TX/my_clk         |   0.000|
+ram2_addr<9>  |   12.142(R)|TX/my_clk         |   0.000|
+ram2_addr<10> |   12.818(R)|TX/my_clk         |   0.000|
+ram2_cs       |   12.306(R)|TX/my_clk         |   0.000|
+ram2_data<0>  |   12.309(R)|TX/my_clk         |   0.000|
+ram2_data<1>  |   12.946(R)|TX/my_clk         |   0.000|
+ram2_data<2>  |   12.340(R)|TX/my_clk         |   0.000|
+ram2_data<3>  |   12.813(R)|TX/my_clk         |   0.000|
+ram2_data<4>  |   12.559(R)|TX/my_clk         |   0.000|
+ram2_data<5>  |   12.566(R)|TX/my_clk         |   0.000|
+ram2_data<6>  |   12.366(R)|TX/my_clk         |   0.000|
+ram2_data<7>  |   12.308(R)|TX/my_clk         |   0.000|
+ram2_r1w0     |   13.176(R)|TX/my_clk         |   0.000|
+ready         |   11.173(R)|RX/my_clk         |   0.000|
+--------------+------------+------------------+--------+
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    6.740|         |         |         |
+ether_clk      |    6.740|         |         |         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock ether_clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    6.740|         |         |         |
+ether_clk      |    6.740|         |         |         |
+---------------+---------+---------+---------+---------+
+
+Pad to Pad
+---------------+---------------+---------+
+Source Pad     |Destination Pad|  Delay  |
+---------------+---------------+---------+
+enabled        |data<0>        |    7.660|
+enabled        |data<1>        |    7.657|
+enabled        |data<2>        |    7.621|
+enabled        |data<3>        |    7.177|
+enabled        |ready          |    7.540|
+read_ok        |data<0>        |    8.175|
+read_ok        |data<1>        |    8.172|
+read_ok        |data<2>        |    8.136|
+read_ok        |data<3>        |    7.692|
+read_ok        |ready          |    7.559|
+write_ok       |ready          |    7.346|
+---------------+---------------+---------+
+
+
+Analysis completed Sun Nov 01 16:35:12 2015 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 166 MB
+
+
+

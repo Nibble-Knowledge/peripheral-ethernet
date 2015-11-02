@@ -1,2 +1,4 @@
 work	"crc32.vhd"
+work	"ethernet.vhd"
 work	"receiver.vhd"
+work	"transmitter.vhd"

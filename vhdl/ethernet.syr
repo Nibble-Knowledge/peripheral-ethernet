@@ -1,0 +1,778 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.11 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.11 secs
+ 
+--> Reading design: ethernet.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "ethernet.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "ethernet"
+Output Format                      : NGC
+Target Device                      : xc3s250e-4-vq100
+
+---- Source Options
+Top Module Name                    : ethernet
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/ethernet/crc32.vhd" in Library work.
+Architecture behavioral of Entity crc is up to date.
+Compiling vhdl file "C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/ethernet/receiver.vhd" in Library work.
+Entity <receiver> compiled.
+Entity <receiver> (Architecture <behavioral>) compiled.
+Compiling vhdl file "C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/ethernet/transmitter.vhd" in Library work.
+Entity <transmitter> compiled.
+Entity <transmitter> (Architecture <behavioral>) compiled.
+Compiling vhdl file "C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/ethernet/ethernet.vhd" in Library work.
+Entity <ethernet> compiled.
+Entity <ethernet> (Architecture <behavioral>) compiled.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <ethernet> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <receiver> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <transmitter> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <crc> in library <work> (architecture <behavioral>).
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <ethernet> in library <work> (Architecture <behavioral>).
+Entity <ethernet> analyzed. Unit <ethernet> generated.
+
+Analyzing Entity <receiver> in library <work> (Architecture <behavioral>).
+Entity <receiver> analyzed. Unit <receiver> generated.
+
+Analyzing Entity <crc> in library <work> (Architecture <behavioral>).
+Entity <crc> analyzed. Unit <crc> generated.
+
+Analyzing Entity <transmitter> in library <work> (Architecture <behavioral>).
+Entity <transmitter> analyzed. Unit <transmitter> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <crc>.
+    Related source file is "C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/ethernet/crc32.vhd".
+    Found 32-bit register for signal <crc32>.
+    Found 1-bit xor2 for signal <crc32_0$xor0000> created at line 78.
+    Found 1-bit xor2 for signal <crc32_1$xor0000> created at line 77.
+    Found 1-bit xor2 for signal <crc32_10$xor0000> created at line 68.
+    Found 1-bit xor2 for signal <crc32_11$xor0000> created at line 67.
+    Found 1-bit xor2 for signal <crc32_12$xor0000> created at line 66.
+    Found 1-bit xor2 for signal <crc32_16$xor0000> created at line 62.
+    Found 1-bit xor2 for signal <crc32_2$xor0000> created at line 76.
+    Found 1-bit xor2 for signal <crc32_22$xor0000> created at line 56.
+    Found 1-bit xor2 for signal <crc32_23$xor0000> created at line 55.
+    Found 1-bit xor2 for signal <crc32_26$xor0000> created at line 52.
+    Found 1-bit xor2 for signal <crc32_4$xor0000> created at line 74.
+    Found 1-bit xor2 for signal <crc32_5$xor0000> created at line 73.
+    Found 1-bit xor2 for signal <crc32_7$xor0000> created at line 71.
+    Found 1-bit xor2 for signal <crc32_8$xor0000> created at line 70.
+    Summary:
+	inferred  32 D-type flip-flop(s).
+Unit <crc> synthesized.
+
+
+Synthesizing Unit <receiver>.
+    Related source file is "C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/ethernet/receiver.vhd".
+    Found finite state machine <FSM_0> for signal <CurrState>.
+    -----------------------------------------------------------------------
+    | States             | 10                                             |
+    | Transitions        | 24                                             |
+    | Inputs             | 6                                              |
+    | Outputs            | 11                                             |
+    | Clock              | my_clk                    (rising_edge)        |
+    | Reset              | crc32_reset               (positive)           |
+    | Reset type         | asynchronous                                   |
+    | Reset State        | idle                                           |
+    | Power Up State     | idle                                           |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 8-bit register for signal <ram_data_out>.
+    Found 1-bit register for signal <ram_cs>.
+    Found 1-bit tristate buffer for signal <ready>.
+    Found 4-bit tristate buffer for signal <data>.
+    Found 1-bit register for signal <crc32_clk>.
+    Found 1-bit xor2 for signal <crc32_clk$xor0000> created at line 153.
+    Found 11-bit comparator equal for signal <CurrState$cmp_eq0002> created at line 214.
+    Found 1-bit register for signal <ether_reference>.
+    Found 1-bit register for signal <manual_reset>.
+    Found 11-bit register for signal <mem_addr>.
+    Found 11-bit subtractor for signal <mem_addr$addsub0000> created at line 158.
+    Found 11-bit register for signal <mem_max>.
+    Found 11-bit adder for signal <mem_max$add0001> created at line 194.
+    Found 3-bit register for signal <mem_pos>.
+    Found 3-bit adder for signal <mem_pos$addsub0000> created at line 173.
+    Found 1-bit register for signal <mem_w1r0>.
+    Found 4-bit register for signal <Mtridata_data> created at line 99.
+    Found 1-bit register for signal <Mtridata_ready> created at line 100.
+    Found 1-bit register for signal <Mtrien_data> created at line 99.
+    Found 1-bit register for signal <Mtrien_ready> created at line 100.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred  45 D-type flip-flop(s).
+	inferred   3 Adder/Subtractor(s).
+	inferred   1 Comparator(s).
+	inferred   5 Tristate(s).
+Unit <receiver> synthesized.
+
+
+Synthesizing Unit <transmitter>.
+    Related source file is "C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/ethernet/transmitter.vhd".
+    Found finite state machine <FSM_1> for signal <CurrState>.
+    -----------------------------------------------------------------------
+    | States             | 17                                             |
+    | Transitions        | 28                                             |
+    | Inputs             | 5                                              |
+    | Outputs            | 20                                             |
+    | Clock              | my_clk                    (rising_edge)        |
+    | Reset              | crc32_reset               (positive)           |
+    | Reset type         | asynchronous                                   |
+    | Reset State        | idle                                           |
+    | Power Up State     | idle                                           |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 8-bit register for signal <ram_data_out>.
+    Found 1-bit register for signal <ram_cs>.
+    Found 1-bit tristate buffer for signal <ready>.
+    Found 1-bit register for signal <ethernet>.
+    Found 1-bit register for signal <ethertx_enable>.
+    Found 1-bit 32-to-1 multiplexer for signal <$varindex0000> created at line 274.
+    Found 32-bit register for signal <buffer_out>.
+    Found 1-bit register for signal <crc32_clk>.
+    Found 1-bit register for signal <crc32_in>.
+    Found 11-bit comparator equal for signal <CurrState$cmp_eq0001> created at line 166.
+    Found 1-bit register for signal <manual_reset>.
+    Found 11-bit register for signal <mem_addr>.
+    Found 11-bit addsub for signal <mem_addr$share0000> created at line 102.
+    Found 11-bit register for signal <mem_max>.
+    Found 11-bit adder for signal <mem_max$add0000> created at line 145.
+    Found 3-bit register for signal <mem_pos>.
+    Found 3-bit adder for signal <mem_pos$share0000> created at line 102.
+    Found 1-bit register for signal <mem_w1r0>.
+    Found 1-bit register for signal <Mtridata_ready> created at line 87.
+    Found 1-bit register for signal <Mtrien_ready> created at line 87.
+    Found 1-bit 8-to-1 multiplexer for signal <ram_data_in$mux0000> created at line 197.
+    Found 5-bit register for signal <sync_count>.
+    Found 5-bit subtractor for signal <sync_count$addsub0000>.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred  79 D-type flip-flop(s).
+	inferred   4 Adder/Subtractor(s).
+	inferred   1 Comparator(s).
+	inferred   2 Multiplexer(s).
+	inferred   1 Tristate(s).
+Unit <transmitter> synthesized.
+
+
+Synthesizing Unit <ethernet>.
+    Related source file is "C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/ethernet/ethernet.vhd".
+    Found 4-bit tristate buffer for signal <data>.
+    Found 1-bit tristate buffer for signal <ready>.
+    Found 8-bit tristate buffer for signal <ram1_data>.
+    Found 8-bit tristate buffer for signal <ram2_data>.
+    Found 8-bit tristate buffer for signal <ram1_in>.
+    Found 8-bit tristate buffer for signal <ram2_in>.
+    Found 4-bit tristate buffer for signal <tx_data>.
+    Summary:
+	inferred  41 Tristate(s).
+Unit <ethernet> synthesized.
+
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 7
+ 11-bit adder                                          : 2
+ 11-bit addsub                                         : 1
+ 11-bit subtractor                                     : 1
+ 3-bit adder                                           : 2
+ 5-bit subtractor                                      : 1
+# Registers                                            : 106
+ 1-bit register                                        : 97
+ 11-bit register                                       : 4
+ 3-bit register                                        : 2
+ 32-bit register                                       : 1
+ 4-bit register                                        : 1
+ 5-bit register                                        : 1
+# Comparators                                          : 2
+ 11-bit comparator equal                               : 2
+# Multiplexers                                         : 2
+ 1-bit 32-to-1 multiplexer                             : 1
+ 1-bit 8-to-1 multiplexer                              : 1
+# Tristates                                            : 10
+ 1-bit tristate buffer                                 : 3
+ 4-bit tristate buffer                                 : 3
+ 8-bit tristate buffer                                 : 4
+# Xors                                                 : 29
+ 1-bit xor2                                            : 29
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Analyzing FSM <FSM_1> for best encoding.
+Optimizing FSM <TX/CurrState/FSM> on signal <CurrState[1:17]> with one-hot encoding.
+-----------------------------------
+ State        | Encoding
+-----------------------------------
+ idle         | 00000000000000001
+ writinglsb   | 00000000000000010
+ readylsb     | 00000000000000100
+ datarxlsb    | 00000000000001000
+ writingmsb   | 00000000000010000
+ readymsb     | 00000000000100000
+ datarxmsb    | 00000000001000000
+ zeroflush    | 00000000010000000
+ ramready     | 00000000100000000
+ framesync1   | 00000001000000000
+ framesync0   | 00000100000000000
+ framesyncend | 00000010000000000
+ notframetx   | 00001000000000000
+ frametx      | 00010000000000000
+ notframecrc  | 00100000000000000
+ framecrc     | 01000000000000000
+ shutdown     | 10000000000000000
+-----------------------------------
+Analyzing FSM <FSM_0> for best encoding.
+Optimizing FSM <RX/CurrState/FSM> on signal <CurrState[1:10]> with one-hot encoding.
+--------------------------
+ State      | Encoding
+--------------------------
+ idle       | 0000000001
+ sync       | 0000000010
+ ignore     | 0000000100
+ framerx    | 0000001000
+ ramstop    | 0000010000
+ validation | 0000100000
+ canttxlsb  | 0001000000
+ datatxlsb  | 0010000000
+ canttxmsb  | 0100000000
+ datatxmsb  | 1000000000
+--------------------------
+WARNING:Xst:1710 - FF/Latch <Mtridata_ready> (without init value) has a constant value of 1 in block <TX>. This FF/Latch will be trimmed during the optimization process.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# FSMs                                                 : 2
+# Adders/Subtractors                                   : 7
+ 11-bit adder                                          : 2
+ 11-bit addsub                                         : 1
+ 11-bit subtractor                                     : 1
+ 3-bit adder                                           : 2
+ 5-bit subtractor                                      : 1
+# Registers                                            : 188
+ Flip-Flops                                            : 188
+# Comparators                                          : 2
+ 11-bit comparator equal                               : 2
+# Multiplexers                                         : 2
+ 1-bit 32-to-1 multiplexer                             : 1
+ 1-bit 8-to-1 multiplexer                              : 1
+# Xors                                                 : 29
+ 1-bit xor2                                            : 29
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1710 - FF/Latch <Mtridata_ready> (without init value) has a constant value of 1 in block <transmitter>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2042 - Unit ethernet: 20 internal tristates are replaced by logic (pull-up yes): ram1_in<0>, ram1_in<1>, ram1_in<2>, ram1_in<3>, ram1_in<4>, ram1_in<5>, ram1_in<6>, ram1_in<7>, ram2_in<0>, ram2_in<1>, ram2_in<2>, ram2_in<3>, ram2_in<4>, ram2_in<5>, ram2_in<6>, ram2_in<7>, tx_data<0>, tx_data<1>, tx_data<2>, tx_data<3>.
+WARNING:Xst:2041 - Unit transmitter: 1 internal tristate is replaced by logic (pull-up yes): ready.
+WARNING:Xst:2042 - Unit receiver: 5 internal tristates are replaced by logic (pull-up yes): data<0>, data<1>, data<2>, data<3>, ready.
+
+Optimizing unit <ethernet> ...
+
+Optimizing unit <crc> ...
+
+Optimizing unit <receiver> ...
+
+Optimizing unit <transmitter> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block ethernet, actual ratio is 7.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 214
+ Flip-Flops                                            : 214
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : ethernet.ngr
+Top Level Output File Name         : ethernet
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 56
+
+Cell Usage :
+# BELS                             : 469
+#      GND                         : 1
+#      INV                         : 16
+#      LUT1                        : 20
+#      LUT2                        : 64
+#      LUT2_D                      : 4
+#      LUT2_L                      : 1
+#      LUT3                        : 45
+#      LUT3_D                      : 5
+#      LUT3_L                      : 4
+#      LUT4                        : 153
+#      LUT4_D                      : 12
+#      LUT4_L                      : 15
+#      MUXCY                       : 57
+#      MUXF5                       : 21
+#      MUXF6                       : 5
+#      MUXF7                       : 2
+#      MUXF8                       : 1
+#      VCC                         : 1
+#      XORCY                       : 42
+# FlipFlops/Latches                : 214
+#      FDC                         : 96
+#      FDCE                        : 2
+#      FDE                         : 80
+#      FDP                         : 30
+#      FDPE                        : 6
+# Clock Buffers                    : 4
+#      BUFG                        : 4
+# IO Buffers                       : 56
+#      IBUF                        : 7
+#      IOBUF                       : 20
+#      OBUF                        : 28
+#      OBUFT                       : 1
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s250evq100-4 
+
+ Number of Slices:                      193  out of   2448     7%  
+ Number of Slice Flip Flops:            214  out of   4896     4%  
+ Number of 4 input LUTs:                339  out of   4896     6%  
+ Number of IOs:                          56
+ Number of bonded IOBs:                  56  out of     66    84%  
+ Number of GCLKs:                         4  out of     24    16%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+-------------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)         | Load  |
+-----------------------------------+-------------------------------+-------+
+RX/crc32_clk1                      | BUFG                          | 32    |
+RX/my_clk1(RX/my_clk1:O)           | BUFG(*)(RX/CurrState_FSM_FFd7)| 55    |
+TX/crc32_clk1                      | BUFG                          | 32    |
+TX/my_clk1(TX/my_clk1:O)           | BUFG(*)(TX/CurrState_FSM_FFd4)| 95    |
+-----------------------------------+-------------------------------+-------+
+(*) These 2 clock signal(s) are generated by combinatorial logic,
+and XST is not able to identify which are the primary clock signals.
+Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-----------------------------------+----------------------------+-------+
+Control Signal                     | Buffer(FF name)            | Load  |
+-----------------------------------+----------------------------+-------+
+TX/crc32_reset(TX/crc32_reset1:O)  | NONE(TX/CurrState_FSM_FFd1)| 72    |
+RX/crc32_reset(RX/crc32_reset1:O)  | NONE(RX/CurrState_FSM_FFd1)| 62    |
+-----------------------------------+----------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 6.858ns (Maximum Frequency: 145.815MHz)
+   Minimum input arrival time before clock: 9.660ns
+   Maximum output required time after clock: 6.269ns
+   Maximum combinational path delay: 7.166ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'RX/crc32_clk1'
+  Clock period: 2.795ns (frequency: 357.782MHz)
+  Total number of paths / destination ports: 45 / 32
+-------------------------------------------------------------------------
+Delay:               2.795ns (Levels of Logic = 1)
+  Source:            RX/FCS/crc32_31 (FF)
+  Destination:       RX/FCS/crc32_11 (FF)
+  Source Clock:      RX/crc32_clk1 rising
+  Destination Clock: RX/crc32_clk1 rising
+
+  Data Path: RX/FCS/crc32_31 to RX/FCS/crc32_11
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q             15   0.591   1.192  RX/FCS/crc32_31 (RX/FCS/crc32_31)
+     LUT2:I0->O            1   0.704   0.000  RX/FCS/Mxor_crc32_8_xor0000_Result1 (RX/FCS/crc32_8_xor0000)
+     FDC:D                     0.308          RX/FCS/crc32_8
+    ----------------------------------------
+    Total                      2.795ns (1.603ns logic, 1.192ns route)
+                                       (57.4% logic, 42.6% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'RX/my_clk1'
+  Clock period: 6.545ns (frequency: 152.788MHz)
+  Total number of paths / destination ports: 705 / 79
+-------------------------------------------------------------------------
+Delay:               6.545ns (Levels of Logic = 5)
+  Source:            RX/mem_pos_2 (FF)
+  Destination:       RX/mem_addr_10 (FF)
+  Source Clock:      RX/my_clk1 rising
+  Destination Clock: RX/my_clk1 rising
+
+  Data Path: RX/mem_pos_2 to RX/mem_addr_10
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q             11   0.591   1.012  RX/mem_pos_2 (RX/mem_pos_2)
+     LUT3_D:I1->LO         1   0.704   0.104  RX/CurrState_cmp_eq00011 (N211)
+     LUT4:I3->O            2   0.704   0.451  RX/mem_addr_mux0000<10>13_SW0_SW0 (N115)
+     LUT4_D:I3->LO         1   0.704   0.104  RX/mem_addr_mux0000<10>11 (N220)
+     LUT4:I3->O            1   0.704   0.455  RX/mem_addr_mux0000<10>_SW0_SW0_SW0 (N176)
+     LUT3:I2->O            1   0.704   0.000  RX/mem_addr_mux0000<10> (RX/mem_addr_mux0000<10>)
+     FDP:D                     0.308          RX/mem_addr_10
+    ----------------------------------------
+    Total                      6.545ns (4.419ns logic, 2.126ns route)
+                                       (67.5% logic, 32.5% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'TX/crc32_clk1'
+  Clock period: 2.795ns (frequency: 357.782MHz)
+  Total number of paths / destination ports: 45 / 32
+-------------------------------------------------------------------------
+Delay:               2.795ns (Levels of Logic = 1)
+  Source:            TX/FCS/crc32_31 (FF)
+  Destination:       TX/FCS/crc32_11 (FF)
+  Source Clock:      TX/crc32_clk1 rising
+  Destination Clock: TX/crc32_clk1 rising
+
+  Data Path: TX/FCS/crc32_31 to TX/FCS/crc32_11
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q             15   0.591   1.192  TX/FCS/crc32_31 (TX/FCS/crc32_31)
+     LUT2:I0->O            1   0.704   0.000  TX/FCS/Mxor_crc32_8_xor0000_Result1 (TX/FCS/crc32_8_xor0000)
+     FDC:D                     0.308          TX/FCS/crc32_8
+    ----------------------------------------
+    Total                      2.795ns (1.603ns logic, 1.192ns route)
+                                       (57.4% logic, 42.6% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'TX/my_clk1'
+  Clock period: 6.858ns (frequency: 145.815MHz)
+  Total number of paths / destination ports: 2098 / 150
+-------------------------------------------------------------------------
+Delay:               6.858ns (Levels of Logic = 9)
+  Source:            TX/mem_addr_1 (FF)
+  Destination:       TX/mem_addr_10 (FF)
+  Source Clock:      TX/my_clk1 rising
+  Destination Clock: TX/my_clk1 rising
+
+  Data Path: TX/mem_addr_1 to TX/mem_addr_10
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDP:C->Q              5   0.591   0.668  TX/mem_addr_1 (TX/mem_addr_1)
+     LUT4:I2->O            1   0.704   0.000  TX/Mcompar_CurrState_cmp_eq0001_lut<0> (TX/Mcompar_CurrState_cmp_eq0001_lut<0>)
+     MUXCY:S->O            1   0.464   0.000  TX/Mcompar_CurrState_cmp_eq0001_cy<0> (TX/Mcompar_CurrState_cmp_eq0001_cy<0>)
+     MUXCY:CI->O           1   0.059   0.000  TX/Mcompar_CurrState_cmp_eq0001_cy<1> (TX/Mcompar_CurrState_cmp_eq0001_cy<1>)
+     MUXCY:CI->O           1   0.059   0.000  TX/Mcompar_CurrState_cmp_eq0001_cy<2> (TX/Mcompar_CurrState_cmp_eq0001_cy<2>)
+     MUXCY:CI->O           1   0.059   0.000  TX/Mcompar_CurrState_cmp_eq0001_cy<3> (TX/Mcompar_CurrState_cmp_eq0001_cy<3>)
+     MUXCY:CI->O           1   0.059   0.000  TX/Mcompar_CurrState_cmp_eq0001_cy<4> (TX/Mcompar_CurrState_cmp_eq0001_cy<4>)
+     MUXCY:CI->O          18   0.459   1.103  TX/Mcompar_CurrState_cmp_eq0001_cy<5> (TX/Mcompar_CurrState_cmp_eq0001_cy<5>)
+     LUT4_D:I2->O         10   0.704   0.917  TX/mem_addr_mux0000<0>227 (TX/N3)
+     LUT4:I2->O            1   0.704   0.000  TX/mem_addr_mux0000<9>1 (TX/mem_addr_mux0000<9>)
+     FDP:D                     0.308          TX/mem_addr_9
+    ----------------------------------------
+    Total                      6.858ns (4.170ns logic, 2.688ns route)
+                                       (60.8% logic, 39.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'RX/crc32_clk1'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              3.292ns (Levels of Logic = 2)
+  Source:            ethernet_in (PAD)
+  Destination:       RX/FCS/crc32_0 (FF)
+  Destination Clock: RX/crc32_clk1 rising
+
+  Data Path: ethernet_in to RX/FCS/crc32_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            13   1.218   1.062  ethernet_in_IBUF (ethernet_in_IBUF)
+     LUT2:I1->O            1   0.704   0.000  RX/FCS/Mxor_crc32_0_xor0000_Result1 (RX/FCS/crc32_0_xor0000)
+     FDC:D                     0.308          RX/FCS/crc32_0
+    ----------------------------------------
+    Total                      3.292ns (2.230ns logic, 1.062ns route)
+                                       (67.7% logic, 32.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'RX/my_clk1'
+  Total number of paths / destination ports: 148 / 59
+-------------------------------------------------------------------------
+Offset:              8.167ns (Levels of Logic = 6)
+  Source:            enabled (PAD)
+  Destination:       RX/mem_addr_10 (FF)
+  Destination Clock: RX/my_clk1 rising
+
+  Data Path: enabled to RX/mem_addr_10
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            21   1.218   1.303  enabled_IBUF (enabled_IBUF)
+     LUT2:I0->O            5   0.704   0.808  rx_read1 (rx_read)
+     LUT4:I0->O            2   0.704   0.451  RX/mem_addr_mux0000<10>13_SW0_SW0 (N115)
+     LUT4_D:I3->LO         1   0.704   0.104  RX/mem_addr_mux0000<10>11 (N220)
+     LUT4:I3->O            1   0.704   0.455  RX/mem_addr_mux0000<10>_SW0_SW0_SW0 (N176)
+     LUT3:I2->O            1   0.704   0.000  RX/mem_addr_mux0000<10> (RX/mem_addr_mux0000<10>)
+     FDP:D                     0.308          RX/mem_addr_10
+    ----------------------------------------
+    Total                      8.167ns (5.046ns logic, 3.121ns route)
+                                       (61.8% logic, 38.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'TX/my_clk1'
+  Total number of paths / destination ports: 689 / 87
+-------------------------------------------------------------------------
+Offset:              9.660ns (Levels of Logic = 6)
+  Source:            enabled (PAD)
+  Destination:       TX/mem_addr_10 (FF)
+  Destination Clock: TX/my_clk1 rising
+
+  Data Path: enabled to TX/mem_addr_10
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            21   1.218   1.303  enabled_IBUF (enabled_IBUF)
+     LUT3:I0->O            3   0.704   0.706  tx_data<1>LogicTrst1 (tx_data<1>)
+     LUT4:I0->O            8   0.704   0.932  TX/CurrState_cmp_eq00001 (TX/CurrState_cmp_eq0000)
+     LUT2_D:I0->O          7   0.704   0.787  TX/ram_cs_mux000011 (TX/N6)
+     LUT4_D:I1->O         10   0.704   0.886  TX/mem_addr_mux0000<0>144 (TX/N01)
+     LUT4:I3->O            1   0.704   0.000  TX/mem_addr_mux0000<8>1 (TX/mem_addr_mux0000<8>)
+     FDP:D                     0.308          TX/mem_addr_8
+    ----------------------------------------
+    Total                      9.660ns (5.046ns logic, 4.614ns route)
+                                       (52.2% logic, 47.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'TX/my_clk1'
+  Total number of paths / destination ports: 31 / 23
+-------------------------------------------------------------------------
+Offset:              6.144ns (Levels of Logic = 2)
+  Source:            TX/mem_w1r0 (FF)
+  Destination:       ram2_r1w0 (PAD)
+  Source Clock:      TX/my_clk1 rising
+
+  Data Path: TX/mem_w1r0 to ram2_r1w0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDP:C->Q              8   0.591   0.757  TX/mem_w1r0 (TX/mem_w1r0)
+     INV:I->O              9   0.704   0.820  internal2_w1r0_inv1_INV_0 (internal2_w1r0_inv)
+     OBUF:I->O                 3.272          ram2_r1w0_OBUF (ram2_r1w0)
+    ----------------------------------------
+    Total                      6.144ns (4.567ns logic, 1.577ns route)
+                                       (74.3% logic, 25.7% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'RX/my_clk1'
+  Total number of paths / destination ports: 39 / 26
+-------------------------------------------------------------------------
+Offset:              6.269ns (Levels of Logic = 2)
+  Source:            RX/mem_w1r0 (FF)
+  Destination:       ram1_r1w0 (PAD)
+  Source Clock:      RX/my_clk1 rising
+
+  Data Path: RX/mem_w1r0 to ram1_r1w0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDPE:C->Q            10   0.591   0.882  RX/mem_w1r0 (RX/mem_w1r0)
+     INV:I->O              9   0.704   0.820  internal1_w1r0_inv1_INV_0 (internal1_w1r0_inv)
+     OBUF:I->O                 3.272          ram1_r1w0_OBUF (ram1_r1w0)
+    ----------------------------------------
+    Total                      6.269ns (4.567ns logic, 1.702ns route)
+                                       (72.9% logic, 27.1% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 13 / 5
+-------------------------------------------------------------------------
+Delay:               7.166ns (Levels of Logic = 3)
+  Source:            enabled (PAD)
+  Destination:       data<3> (PAD)
+
+  Data Path: enabled to data<3>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            21   1.218   1.303  enabled_IBUF (enabled_IBUF)
+     LUT2:I0->O            6   0.704   0.669  RX/Mtrien_ready_mux00001 (RX/Mtrien_ready_mux0000)
+     IOBUF:T->IO               3.272          data_3_IOBUF (data<3>)
+    ----------------------------------------
+    Total                      7.166ns (5.194ns logic, 1.972ns route)
+                                       (72.5% logic, 27.5% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 7.00 secs
+Total CPU time to Xst completion: 6.49 secs
+ 
+--> 
+
+Total memory usage is 301316 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    5 (   0 filtered)
+Number of infos    :    1 (   0 filtered)
+
