@@ -18,3 +18,132 @@ map -intstyle ise -p xc3s250e-vq100-4 -cm area -ir off -pr off -c 100 -o etherne
 par -w -intstyle ise -ol high -t 1 ethernet_map.ncd ethernet.ncd ethernet.pcf 
 trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml ethernet.twx ethernet.ncd -o ethernet.twr ethernet.pcf 
 bitgen -intstyle ise -f ethernet.ut ethernet.ncd 
+xst -intstyle ise -ifn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.xst" -ofn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.syr" 
+xst -intstyle ise -ifn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.xst" -ofn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.syr" 
+xst -intstyle ise -ifn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.xst" -ofn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.syr" 
+xst -intstyle ise -ifn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.xst" -ofn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.syr" 
+xst -intstyle ise -ifn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.xst" -ofn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.syr" 
+xst -intstyle ise -ifn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.xst" -ofn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.syr" 
+xst -intstyle ise -ifn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.xst" -ofn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ethernet.ucf -p xc3s250e-vq100-4 "ethernet.ngc" ethernet.ngd  
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ethernet.ucf -p xc3s250e-vq100-4 "ethernet.ngc" ethernet.ngd  
+map -intstyle ise -p xc3s250e-vq100-4 -cm area -ir off -pr off -c 100 -o ethernet_map.ncd ethernet.ngd ethernet.pcf 
+par -w -intstyle ise -ol high -t 1 ethernet_map.ncd ethernet.ncd ethernet.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml ethernet.twx ethernet.ncd -o ethernet.twr ethernet.pcf -ucf ethernet.ucf 
+bitgen -intstyle ise -f ethernet.ut ethernet.ncd 
+xst -intstyle ise -ifn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.xst" -ofn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ethernet.ucf -p xc3s250e-vq100-4 "ethernet.ngc" ethernet.ngd  
+map -intstyle ise -p xc3s250e-vq100-4 -cm area -ir off -pr off -c 100 -o ethernet_map.ncd ethernet.ngd ethernet.pcf 
+par -w -intstyle ise -ol high -t 1 ethernet_map.ncd ethernet.ncd ethernet.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml ethernet.twx ethernet.ncd -o ethernet.twr ethernet.pcf -ucf ethernet.ucf 
+bitgen -intstyle ise -f ethernet.ut ethernet.ncd 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ethernet.ucf -p xc3s250e-vq100-4 "ethernet.ngc" ethernet.ngd  
+map -intstyle ise -p xc3s250e-vq100-4 -cm area -ir off -pr off -c 100 -o ethernet_map.ncd ethernet.ngd ethernet.pcf 
+par -w -intstyle ise -ol high -t 1 ethernet_map.ncd ethernet.ncd ethernet.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml ethernet.twx ethernet.ncd -o ethernet.twr ethernet.pcf -ucf ethernet.ucf 
+bitgen -intstyle ise -f ethernet.ut ethernet.ncd 
+xst -intstyle ise -ifn "C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/ethernet/ethernet.xst" -ofn "C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/ethernet/ethernet.syr" 
+xst -intstyle ise -ifn "C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/ethernet/ethernet.xst" -ofn "C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/ethernet/ethernet.syr" 
+xst -intstyle ise -ifn "C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/ethernet/ethernet.xst" -ofn "C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/ethernet/ethernet.syr" 
+xst -intstyle ise -ifn "C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/ethernet/ethernet.xst" -ofn "C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/ethernet/ethernet.syr" 
+xst -intstyle ise -ifn "C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/ethernet/ethernet.xst" -ofn "C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/ethernet/ethernet.syr" 
+xst -intstyle ise -ifn "C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/ethernet/ethernet.xst" -ofn "C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/ethernet/ethernet.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ethernet.ucf -p xc3s250e-vq100-4 "ethernet.ngc" ethernet.ngd  
+map -intstyle ise -p xc3s250e-vq100-4 -cm area -ir off -pr off -c 100 -o ethernet_map.ncd ethernet.ngd ethernet.pcf 
+par -w -intstyle ise -ol high -t 1 ethernet_map.ncd ethernet.ncd ethernet.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml ethernet.twx ethernet.ncd -o ethernet.twr ethernet.pcf -ucf ethernet.ucf 
+bitgen -intstyle ise -f ethernet.ut ethernet.ncd 
+bitgen -intstyle ise -f ethernet.ut ethernet.ncd 
+xst -intstyle ise -ifn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.xst" -ofn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ethernet.ucf -p xc3s250e-vq100-4 "ethernet.ngc" ethernet.ngd  
+map -intstyle ise -p xc3s250e-vq100-4 -cm area -ir off -pr off -c 100 -o ethernet_map.ncd ethernet.ngd ethernet.pcf 
+par -w -intstyle ise -ol high -t 1 ethernet_map.ncd ethernet.ncd ethernet.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml ethernet.twx ethernet.ncd -o ethernet.twr ethernet.pcf -ucf ethernet.ucf 
+bitgen -intstyle ise -f ethernet.ut ethernet.ncd 
+xst -intstyle ise -ifn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.xst" -ofn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ethernet.ucf -p xc3s250e-vq100-4 "ethernet.ngc" ethernet.ngd  
+map -intstyle ise -p xc3s250e-vq100-4 -cm area -ir off -pr off -c 100 -o ethernet_map.ncd ethernet.ngd ethernet.pcf 
+par -w -intstyle ise -ol high -t 1 ethernet_map.ncd ethernet.ncd ethernet.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml ethernet.twx ethernet.ncd -o ethernet.twr ethernet.pcf -ucf ethernet.ucf 
+bitgen -intstyle ise -f ethernet.ut ethernet.ncd 
+xst -intstyle ise -ifn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.xst" -ofn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ethernet.ucf -p xc3s250e-vq100-4 "ethernet.ngc" ethernet.ngd  
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ethernet.ucf -p xc3s250e-vq100-4 "ethernet.ngc" ethernet.ngd  
+map -intstyle ise -p xc3s250e-vq100-4 -cm area -ir off -pr off -c 100 -o ethernet_map.ncd ethernet.ngd ethernet.pcf 
+par -w -intstyle ise -ol high -t 1 ethernet_map.ncd ethernet.ncd ethernet.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml ethernet.twx ethernet.ncd -o ethernet.twr ethernet.pcf -ucf ethernet.ucf 
+bitgen -intstyle ise -f ethernet.ut ethernet.ncd 
+xst -intstyle ise -ifn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.xst" -ofn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ethernet.ucf -p xc3s250e-vq100-4 "ethernet.ngc" ethernet.ngd  
+map -intstyle ise -p xc3s250e-vq100-4 -cm area -ir off -pr off -c 100 -o ethernet_map.ncd ethernet.ngd ethernet.pcf 
+par -w -intstyle ise -ol high -t 1 ethernet_map.ncd ethernet.ncd ethernet.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml ethernet.twx ethernet.ncd -o ethernet.twr ethernet.pcf -ucf ethernet.ucf 
+bitgen -intstyle ise -f ethernet.ut ethernet.ncd 
+xst -intstyle ise -ifn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.xst" -ofn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ethernet.ucf -p xc3s250e-vq100-4 "ethernet.ngc" ethernet.ngd  
+map -intstyle ise -p xc3s250e-vq100-4 -cm area -ir off -pr off -c 100 -o ethernet_map.ncd ethernet.ngd ethernet.pcf 
+par -w -intstyle ise -ol high -t 1 ethernet_map.ncd ethernet.ncd ethernet.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml ethernet.twx ethernet.ncd -o ethernet.twr ethernet.pcf -ucf ethernet.ucf 
+bitgen -intstyle ise -f ethernet.ut ethernet.ncd 
+xst -intstyle ise -ifn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.xst" -ofn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.syr" 
+xst -intstyle ise -ifn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.xst" -ofn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.syr" 
+xst -intstyle ise -ifn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.xst" -ofn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.syr" 
+xst -intstyle ise -ifn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.xst" -ofn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.syr" 
+xst -intstyle ise -ifn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.xst" -ofn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ethernet.ucf -p xc3s250e-vq100-4 "ethernet.ngc" ethernet.ngd  
+map -intstyle ise -p xc3s250e-vq100-4 -cm area -ir off -pr off -c 100 -o ethernet_map.ncd ethernet.ngd ethernet.pcf 
+par -w -intstyle ise -ol high -t 1 ethernet_map.ncd ethernet.ncd ethernet.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml ethernet.twx ethernet.ncd -o ethernet.twr ethernet.pcf -ucf ethernet.ucf 
+bitgen -intstyle ise -f ethernet.ut ethernet.ncd 
+xst -intstyle ise -ifn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.xst" -ofn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.syr" 
+xst -intstyle ise -ifn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.xst" -ofn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.syr" 
+xst -intstyle ise -ifn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.xst" -ofn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.syr" 
+xst -intstyle ise -ifn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.xst" -ofn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.syr" 
+xst -intstyle ise -ifn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.xst" -ofn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.syr" 
+xst -intstyle ise -ifn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.xst" -ofn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ethernet.ucf -p xc3s250e-vq100-4 "ethernet.ngc" ethernet.ngd  
+map -intstyle ise -p xc3s250e-vq100-4 -cm area -ir off -pr off -c 100 -o ethernet_map.ncd ethernet.ngd ethernet.pcf 
+par -w -intstyle ise -ol high -t 1 ethernet_map.ncd ethernet.ncd ethernet.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml ethernet.twx ethernet.ncd -o ethernet.twr ethernet.pcf -ucf ethernet.ucf 
+bitgen -intstyle ise -f ethernet.ut ethernet.ncd 
+xst -intstyle ise -ifn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.xst" -ofn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.syr" 
+xst -intstyle ise -ifn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.xst" -ofn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.syr" 
+xst -intstyle ise -ifn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.xst" -ofn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.syr" 
+xst -intstyle ise -ifn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.xst" -ofn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.syr" 
+xst -intstyle ise -ifn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.xst" -ofn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.syr" 
+xst -intstyle ise -ifn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.xst" -ofn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.syr" 
+xst -intstyle ise -ifn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.xst" -ofn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.syr" 
+xst -intstyle ise -ifn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.xst" -ofn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.syr" 
+xst -intstyle ise -ifn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.xst" -ofn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ethernet.ucf -p xc3s250e-vq100-4 "ethernet.ngc" ethernet.ngd  
+map -intstyle ise -p xc3s250e-vq100-4 -cm area -ir off -pr off -c 100 -o ethernet_map.ncd ethernet.ngd ethernet.pcf 
+par -w -intstyle ise -ol high -t 1 ethernet_map.ncd ethernet.ncd ethernet.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml ethernet.twx ethernet.ncd -o ethernet.twr ethernet.pcf -ucf ethernet.ucf 
+bitgen -intstyle ise -f ethernet.ut ethernet.ncd 
+xst -intstyle ise -ifn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.xst" -ofn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.syr" 
+xst -intstyle ise -ifn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.xst" -ofn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.syr" 
+xst -intstyle ise -ifn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.xst" -ofn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.syr" 
+xst -intstyle ise -ifn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.xst" -ofn "C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/ethernet.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ethernet.ucf -p xc3s250e-vq100-4 "ethernet.ngc" ethernet.ngd  
+map -intstyle ise -p xc3s250e-vq100-4 -cm area -ir off -pr off -c 100 -o ethernet_map.ncd ethernet.ngd ethernet.pcf 
+par -w -intstyle ise -ol high -t 1 ethernet_map.ncd ethernet.ncd ethernet.pcf 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ethernet.ucf -p xc3s250e-vq100-4 "ethernet.ngc" ethernet.ngd  
+map -intstyle ise -p xc3s250e-vq100-4 -cm area -ir off -pr off -c 100 -o ethernet_map.ncd ethernet.ngd ethernet.pcf 
+par -w -intstyle ise -ol high -t 1 ethernet_map.ncd ethernet.ncd ethernet.pcf 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ethernet.ucf -p xc3s250e-vq100-4 "ethernet.ngc" ethernet.ngd  
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ethernet.ucf -p xc3s250e-vq100-4 "ethernet.ngc" ethernet.ngd  
+map -intstyle ise -p xc3s250e-vq100-4 -cm area -ir off -pr off -c 100 -o ethernet_map.ncd ethernet.ngd ethernet.pcf 
+par -w -intstyle ise -ol high -t 1 ethernet_map.ncd ethernet.ncd ethernet.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml ethernet.twx ethernet.ncd -o ethernet.twr ethernet.pcf -ucf ethernet.ucf 
+bitgen -intstyle ise -f ethernet.ut ethernet.ncd 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ethernet.ucf -p xc3s250e-vq100-4 "ethernet.ngc" ethernet.ngd  
+map -intstyle ise -p xc3s250e-vq100-4 -cm area -ir off -pr off -c 100 -o ethernet_map.ncd ethernet.ngd ethernet.pcf 
+par -w -intstyle ise -ol high -t 1 ethernet_map.ncd ethernet.ncd ethernet.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml ethernet.twx ethernet.ncd -o ethernet.twr ethernet.pcf -ucf ethernet.ucf 
+bitgen -intstyle ise -f ethernet.ut ethernet.ncd 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ethernet.ucf -p xc3s250e-vq100-4 "ethernet.ngc" ethernet.ngd  
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ethernet.ucf -p xc3s250e-vq100-4 "ethernet.ngc" ethernet.ngd  
+map -intstyle ise -p xc3s250e-vq100-4 -cm area -ir off -pr off -c 100 -o ethernet_map.ncd ethernet.ngd ethernet.pcf 
+par -w -intstyle ise -ol high -t 1 ethernet_map.ncd ethernet.ncd ethernet.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml ethernet.twx ethernet.ncd -o ethernet.twr ethernet.pcf -ucf ethernet.ucf 
+bitgen -intstyle ise -f ethernet.ut ethernet.ncd 

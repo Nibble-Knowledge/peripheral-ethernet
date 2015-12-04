@@ -1,7 +1,7 @@
 Release 14.7 Drc P.20131013 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-Sun Nov 01 16:35:15 2015
+Mon Nov 16 19:46:34 2015
 
 drc -z ethernet.ncd ethernet.pcf
 

@@ -23,6 +23,7 @@ entity transmitter is
            ready : out  STD_LOGIC;
            ethernet : out  STD_LOGIC;
 			  ethertx_enable : out  STD_LOGIC;
+			  ethertx_request : out  STD_LOGIC;
 			  
 			  --External memory connections
            ram_addr : out  STD_LOGIC_VECTOR (10 downto 0);
@@ -89,6 +90,7 @@ begin
 			sync_count <= to_unsigned(31, sync_count'length);	--31 '10' + 1 '11' sync signals
 			ethernet <= '0';
 			ethertx_enable <= '0';
+			ethertx_request <= '0';
 			
 			crc32_clk <= '0';
 			
@@ -180,6 +182,7 @@ begin
 				
 				when RAMREADY =>	--give some time for the RAM to stabilize
 					ram_cs <= '1';
+					ethertx_request <= '1';
 					CurrState <= FRAMESYNC1;
 				
 				when FRAMESYNC1 =>	--Send out a '1' sync signal

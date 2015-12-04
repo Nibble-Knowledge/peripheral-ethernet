@@ -35,6 +35,7 @@ entity receiver is
            ethernet : in  STD_LOGIC;
 			  read_ok : in STD_LOGIC;
 			  ready : out STD_LOGIC;
+			  etherrx_request : out STD_LOGIC;
            data : out  STD_LOGIC_VECTOR (3 downto 0);
 			  
 			  --External memory connections
@@ -96,6 +97,7 @@ begin
 		--Reset the signals to their defaults
 		if reset = '1' or manual_reset = '1' then
 			CurrState <= IDLE;
+			etherrx_request <= '0';
 			data <= "ZZZZ";
 			ready <= 'Z';
 			manual_reset <= '0';
@@ -136,6 +138,9 @@ begin
 					
 					--Turn off the CRC clock
 					crc32_clk <= '0';
+					
+					--Signal the main board that we are (most likely) receiving actual data and not autonegotiation signals
+					etherrx_request <= '1';
 					
 					--If this is the first position in the byte, increment the memory address
 					if mem_pos = 0 then
@@ -180,6 +185,9 @@ begin
 					mem_w1r0 <= '0';
 					ram_cs <= '0';
 					CurrState <= VALIDATION;
+					
+					--We're done receiving, so allow autonegotiation pulses to be accepted
+					etherrx_request <= '0';
 		
 				when VALIDATION =>	--Validate the data is correct
 					--If the CRC is all zeros and the memory position is at 0, our data is correct

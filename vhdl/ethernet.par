@@ -1,7 +1,7 @@
 Release 14.7 par P.20131013 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-YAKOV-DESKTOP::  Sun Nov 01 16:35:00 2015
+YAKOV-SURFACE::  Mon Nov 16 19:46:13 2015
 
 par -w -intstyle ise -ol high -t 1 ethernet_map.ncd ethernet.ncd ethernet.pcf 
 
@@ -29,17 +29,23 @@ Design Summary Report:
    Number of External Input IOBs                  7
 
       Number of External Input IBUFs              7
+        Number of LOCed External Input IBUFs      7 out of 7     100%
+
 
    Number of External Output IOBs                29
 
       Number of External Output IOBs             29
+        Number of LOCed External Output IOBs     21 out of 29     72%
+
 
    Number of External Bidir IOBs                 20
 
       Number of External Bidir IOBs              20
+        Number of LOCed External Bidir IOBs      20 out of 20    100%
 
-   Number of BUFGMUXs                        4 out of 24     16%
-   Number of Slices                        199 out of 2448    8%
+
+   Number of BUFGMUXs                        6 out of 24     25%
+   Number of Slices                        281 out of 2448   11%
       Number of SLICEMs                      4 out of 1224    1%
 
 
@@ -58,46 +64,70 @@ Total REAL time at the beginning of Placer: 1 secs
 Total CPU  time at the beginning of Placer: 1 secs 
 
 Phase 1.1  Initial Placement Analysis
-Phase 1.1  Initial Placement Analysis (Checksum:8288) REAL time: 1 secs 
+Phase 1.1  Initial Placement Analysis (Checksum:a375e32e) REAL time: 1 secs 
 
 Phase 2.7  Design Feasibility Check
-Phase 2.7  Design Feasibility Check (Checksum:8288) REAL time: 1 secs 
+WARNING:Place:837 - Partially locked IO Bus is found. 
+    Following components of the bus are not locked: 
+   	 Comp: ram1_addr<10>
+   	 Comp: ram1_addr<9>
+   	 Comp: ram1_addr<8>
+   	 Comp: ram1_addr<7>
+
+WARNING:Place:837 - Partially locked IO Bus is found. 
+    Following components of the bus are not locked: 
+   	 Comp: ram2_addr<10>
+   	 Comp: ram2_addr<9>
+   	 Comp: ram2_addr<8>
+   	 Comp: ram2_addr<7>
+
+INFO:Place:834 - Only a subset of IOs are locked. Out of 49 IOs, 41 are locked and 8 are not locked. If you would like
+   to print the names of these IOs, please set the environment variable XIL_PAR_DESIGN_CHECK_VERBOSE to 1. 
+Phase 2.7  Design Feasibility Check (Checksum:a375e32e) REAL time: 1 secs 
 
 Phase 3.31  Local Placement Optimization
-Phase 3.31  Local Placement Optimization (Checksum:8288) REAL time: 1 secs 
+Phase 3.31  Local Placement Optimization (Checksum:a375e32e) REAL time: 1 secs 
 
 Phase 4.2  Initial Clock and IO Placement
-.....
-Phase 4.2  Initial Clock and IO Placement (Checksum:7f5c32e4) REAL time: 1 secs 
+...
+..............
+WARNING:Place:1019 - A clock IOB / clock component pair have been found that are not placed at an optimal clock IOB /
+   clock site pair. The clock component <ethernet_in_IBUF_BUFG> is placed at site <BUFGMUX_X1Y10>. The IO component
+   <ethernet_in> is placed at site <P4>.  This will not allow the use of the fast path between the IO and the Clock
+   buffer. This is normally an ERROR but the CLOCK_DEDICATED_ROUTE constraint was applied on COMP.PIN <ethernet_in.PAD>
+   allowing your design to continue. This constraint disables all clock placer rules related to the specified COMP.PIN.
+   The use of this override is highly discouraged as it may lead to very poor timing results. It is recommended that
+   this error condition be corrected in the design.
+Phase 4.2  Initial Clock and IO Placement (Checksum:acd4083c) REAL time: 3 secs 
 
 Phase 5.30  Global Clock Region Assignment
-Phase 5.30  Global Clock Region Assignment (Checksum:7f5c32e4) REAL time: 1 secs 
+Phase 5.30  Global Clock Region Assignment (Checksum:acd4083c) REAL time: 3 secs 
 
 Phase 6.36  Local Placement Optimization
-Phase 6.36  Local Placement Optimization (Checksum:7f5c32e4) REAL time: 1 secs 
+Phase 6.36  Local Placement Optimization (Checksum:acd4083c) REAL time: 3 secs 
 
 Phase 7.3  Local Placement Optimization
-......
-Phase 7.3  Local Placement Optimization (Checksum:c58ffde4) REAL time: 2 secs 
+...
+Phase 7.3  Local Placement Optimization (Checksum:8b6a7939) REAL time: 3 secs 
 
 Phase 8.5  Local Placement Optimization
-Phase 8.5  Local Placement Optimization (Checksum:c58ffde4) REAL time: 2 secs 
+Phase 8.5  Local Placement Optimization (Checksum:8b6a7939) REAL time: 3 secs 
 
 Phase 9.8  Global Placement
-..............................
-.........
-Phase 9.8  Global Placement (Checksum:7de4f5c) REAL time: 3 secs 
+...................................
+....
+Phase 9.8  Global Placement (Checksum:89a0f743) REAL time: 3 secs 
 
 Phase 10.5  Local Placement Optimization
-Phase 10.5  Local Placement Optimization (Checksum:7de4f5c) REAL time: 3 secs 
+Phase 10.5  Local Placement Optimization (Checksum:89a0f743) REAL time: 3 secs 
 
 Phase 11.18  Placement Optimization
-Phase 11.18  Placement Optimization (Checksum:e345103a) REAL time: 4 secs 
+Phase 11.18  Placement Optimization (Checksum:7abbe9c2) REAL time: 3 secs 
 
 Phase 12.5  Local Placement Optimization
-Phase 12.5  Local Placement Optimization (Checksum:e345103a) REAL time: 4 secs 
+Phase 12.5  Local Placement Optimization (Checksum:7abbe9c2) REAL time: 3 secs 
 
-Total REAL time to Placer completion: 4 secs 
+Total REAL time to Placer completion: 3 secs 
 Total CPU  time to Placer completion: 3 secs 
 Writing design to file ethernet.ncd
 
@@ -106,13 +136,13 @@ Writing design to file ethernet.ncd
 Starting Router
 
 
-Phase  1  : 1495 unrouted;      REAL time: 5 secs 
+Phase  1  : 2024 unrouted;      REAL time: 5 secs 
 
-Phase  2  : 1343 unrouted;      REAL time: 6 secs 
+Phase  2  : 1820 unrouted;      REAL time: 5 secs 
 
-Phase  3  : 261 unrouted;      REAL time: 6 secs 
+Phase  3  : 335 unrouted;      REAL time: 6 secs 
 
-Phase  4  : 298 unrouted; (Par is working to improve performance)     REAL time: 6 secs 
+Phase  4  : 389 unrouted; (Par is working to improve performance)     REAL time: 6 secs 
 
 Phase  5  : 0 unrouted; (Par is working to improve performance)     REAL time: 6 secs 
 
@@ -120,20 +150,22 @@ Updating file: ethernet.ncd with current fully routed design.
 
 Phase  6  : 0 unrouted; (Par is working to improve performance)     REAL time: 6 secs 
 
-Phase  7  : 0 unrouted; (Par is working to improve performance)     REAL time: 8 secs 
+Phase  7  : 0 unrouted; (Par is working to improve performance)     REAL time: 12 secs 
 
 Updating file: ethernet.ncd with current fully routed design.
 
-Phase  8  : 0 unrouted; (Par is working to improve performance)     REAL time: 9 secs 
+Phase  8  : 0 unrouted; (Par is working to improve performance)     REAL time: 13 secs 
 
-Phase  9  : 0 unrouted; (Par is working to improve performance)     REAL time: 9 secs 
+Phase  9  : 0 unrouted; (Par is working to improve performance)     REAL time: 13 secs 
 
-Phase 10  : 0 unrouted; (Par is working to improve performance)     REAL time: 9 secs 
+Phase 10  : 0 unrouted; (Par is working to improve performance)     REAL time: 13 secs 
 
-Phase 11  : 0 unrouted; (Par is working to improve performance)     REAL time: 9 secs 
+Phase 11  : 0 unrouted; (Par is working to improve performance)     REAL time: 13 secs 
 
-Total REAL time to Router completion: 9 secs 
-Total CPU time to Router completion: 8 secs 
+Phase 12  : 0 unrouted; (Par is working to improve performance)     REAL time: 13 secs 
+
+Total REAL time to Router completion: 13 secs 
+Total CPU time to Router completion: 13 secs 
 
 Partition Implementation Status
 -------------------------------
@@ -151,13 +183,17 @@ Generating Clock Report
 +---------------------+--------------+------+------+------------+-------------+
 |        Clock Net    |   Resource   |Locked|Fanout|Net Skew(ns)|Max Delay(ns)|
 +---------------------+--------------+------+------+------------+-------------+
-|           TX/my_clk | BUFGMUX_X2Y11| No   |   59 |  0.027     |  0.116      |
+|           TX/my_clk |  BUFGMUX_X2Y1| No   |   61 |  0.045     |  0.116      |
 +---------------------+--------------+------+------+------------+-------------+
-|        RX/crc32_clk |  BUFGMUX_X1Y0| No   |   16 |  0.014     |  0.116      |
+|      ether_clk_IBUF | BUFGMUX_X2Y10| No   |   38 |  0.019     |  0.109      |
 +---------------------+--------------+------+------+------------+-------------+
-|           RX/my_clk |  BUFGMUX_X2Y1| No   |   46 |  0.037     |  0.111      |
+|        RX/crc32_clk | BUFGMUX_X1Y11| No   |   16 |  0.020     |  0.111      |
 +---------------------+--------------+------+------+------------+-------------+
-|        TX/crc32_clk | BUFGMUX_X1Y10| No   |   16 |  0.016     |  0.109      |
+|           RX/my_clk | BUFGMUX_X2Y11| No   |   45 |  0.041     |  0.110      |
++---------------------+--------------+------+------+------------+-------------+
+|    ethernet_in_IBUF | BUFGMUX_X1Y10| No   |    4 |  0.020     |  0.113      |
++---------------------+--------------+------+------+------------+-------------+
+|        TX/crc32_clk |  BUFGMUX_X2Y0| No   |   16 |  0.010     |  0.109      |
 +---------------------+--------------+------+------+------------+-------------+
 
 * Net Skew is the difference between the minimum and maximum routing
@@ -177,17 +213,23 @@ Asterisk (*) preceding a constraint indicates it was not met.
   Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
                                             |             |    Slack   | Achievable | Errors |    Score   
 ----------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net TX/ | SETUP       |         N/A|     6.372ns|     N/A|           0
-  my_clk                                    | HOLD        |     1.278ns|            |       0|           0
+  Autotimespec constraint for clock net TX/ | SETUP       |         N/A|     6.647ns|     N/A|           0
+  my_clk                                    | HOLD        |     1.306ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net RX/ | SETUP       |         N/A|     2.609ns|     N/A|           0
-  crc32_clk                                 | HOLD        |     0.968ns|            |       0|           0
+  Autotimespec constraint for clock net eth | SETUP       |         N/A|     5.363ns|     N/A|           0
+  er_clk_IBUF                               | HOLD        |     1.067ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net RX/ | SETUP       |         N/A|     6.740ns|     N/A|           0
-  my_clk                                    | HOLD        |     1.317ns|            |       0|           0
-----------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net TX/ | SETUP       |         N/A|     2.541ns|     N/A|           0
+  Autotimespec constraint for clock net RX/ | SETUP       |         N/A|     2.543ns|     N/A|           0
   crc32_clk                                 | HOLD        |     0.970ns|            |       0|           0
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net RX/ | SETUP       |         N/A|     5.813ns|     N/A|           0
+  my_clk                                    | HOLD        |     1.158ns|            |       0|           0
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net eth | SETUP       |         N/A|     4.798ns|     N/A|           0
+  ernet_in_IBUF                             | HOLD        |     1.366ns|            |       0|           0
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net TX/ | SETUP       |         N/A|     2.352ns|     N/A|           0
+  crc32_clk                                 | HOLD        |     0.968ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
 
 
@@ -203,17 +245,17 @@ Generating Pad Report.
 
 All signals are completely routed.
 
-Total REAL time to PAR completion: 9 secs 
-Total CPU time to PAR completion: 9 secs 
+Total REAL time to PAR completion: 13 secs 
+Total CPU time to PAR completion: 13 secs 
 
-Peak Memory Usage:  301 MB
+Peak Memory Usage:  296 MB
 
 Placement: Completed - No errors found.
 Routing: Completed - No errors found.
 
 Number of error messages: 0
-Number of warning messages: 0
-Number of info messages: 1
+Number of warning messages: 3
+Number of info messages: 2
 
 Writing design to file ethernet.ncd
 

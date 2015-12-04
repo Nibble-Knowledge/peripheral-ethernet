@@ -1,4 +1,5 @@
 vhdl work "crc32.vhd"
 vhdl work "transmitter.vhd"
 vhdl work "receiver.vhd"
+vhdl work "autonegotiation.vhd"
 vhdl work "ethernet.vhd"

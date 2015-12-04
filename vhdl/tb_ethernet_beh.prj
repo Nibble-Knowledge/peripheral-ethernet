@@ -1,6 +1,7 @@
 vhdl work "crc32.vhd"
 vhdl work "transmitter.vhd"
 vhdl work "receiver.vhd"
+vhdl work "autonegotiation.vhd"
 vhdl work "ethernet.vhd"
 vhdl work "async_ram.vhd"
 vhdl work "tb_ethernet.vhd"

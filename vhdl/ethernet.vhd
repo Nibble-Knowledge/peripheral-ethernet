@@ -48,7 +48,8 @@ entity ethernet is
            ram2_addr : out  STD_LOGIC_VECTOR (10 downto 0);
            ram2_r1w0 : out  STD_LOGIC;
 			  ram2_cs : out  STD_LOGIC;
-           ram2_data : inout  STD_LOGIC_VECTOR (7 downto 0));
+           ram2_data : inout  STD_LOGIC_VECTOR (7 downto 0)
+		);
 end ethernet;
 
 architecture Behavioral of ethernet is
@@ -60,6 +61,7 @@ architecture Behavioral of ethernet is
 				  ethernet : in  STD_LOGIC;
 				  read_ok : in STD_LOGIC;
 				  ready : out STD_LOGIC;
+				  etherrx_request : out STD_LOGIC;
 				  data : out  STD_LOGIC_VECTOR (3 downto 0);
 				  
 				  --External memory connections
@@ -72,6 +74,7 @@ architecture Behavioral of ethernet is
 	end component;
 	signal rx_read : std_logic;
 	signal rx_ready : std_logic;
+	signal rx_request : std_logic;
 	signal rx_data : std_logic_vector (3 downto 0);
 	signal internal1_w1r0 : std_logic;
 	signal internal1_cs : std_logic;
@@ -89,6 +92,7 @@ architecture Behavioral of ethernet is
 				  ready : out  STD_LOGIC;
 				  ethernet : out  STD_LOGIC;
 				  ethertx_enable : out  STD_LOGIC;
+				  ethertx_request : out  STD_LOGIC;
 				  
 				  --External memory connections
 				  ram_addr : out  STD_LOGIC_VECTOR (10 downto 0);
@@ -100,11 +104,24 @@ architecture Behavioral of ethernet is
 	signal tx_write : std_logic;
 	signal tx_ready : std_logic;
 	signal tx_data : std_logic_vector (3 downto 0);
+	signal tx_ether : std_logic;
+	signal tx_enable : std_logic;
+	signal tx_request : std_logic;
 	signal internal2_w1r0 : std_logic;
 	signal internal2_cs : std_logic;
 	signal ram2_in : std_logic_vector (7 downto 0);
 	signal ram2_out : std_logic_vector (7 downto 0);
 	
+	component autonegotiation
+		 Port ( clk : in  STD_LOGIC;
+				  reset : in  STD_LOGIC;
+				  pulse_in : in  STD_LOGIC;
+				  pulse_out : out  STD_LOGIC;
+				  established : out  STD_LOGIC);
+	end component;
+	signal pulse_in : std_logic;
+	signal pulse_out : std_logic;
+	signal established : std_logic;
 begin
 	RX : receiver port map (
 		clk => clk,
@@ -113,6 +130,7 @@ begin
 		ethernet => ethernet_in,
 		read_ok => rx_read,
 		ready => rx_ready,
+		etherrx_request => rx_request,
 		data => rx_data,
 		ram_addr => ram1_addr,
 		ram_w1r0 => internal1_w1r0,
@@ -128,8 +146,9 @@ begin
 		writing => tx_write,
 		data => tx_data,
 		ready => tx_ready,
-		ethernet => ethernet_out,
-		ethertx_enable => ethertx_enable,
+		ethernet => tx_ether,
+		ethertx_enable => tx_enable,
+		ethertx_request => tx_request,
 		ram_addr => ram2_addr,
 		ram_w1r0 => internal2_w1r0,
 		ram_cs => internal2_cs,
@@ -137,14 +156,26 @@ begin
 		ram_data_out => ram2_out
 	);
 	
+	LINKPULSE : autonegotiation port map (
+		clk => ether_clk,
+		reset => reset,
+		pulse_in => ethernet_in,
+		pulse_out => pulse_out,
+		established => established
+	);
+	
 	--Map outputs shared by both peripherals
 	--Don't forget to set output to high impedance if not in use
 	rx_read <= enabled and read_ok;
-	tx_write <= enabled and write_ok;
+	tx_write <= enabled and write_ok and established;	--can't write until connection is established
 	
 	ready <= rx_ready when (rx_read = '1') else tx_ready when (tx_write = '1') else 'Z';
 	data <= rx_data when (rx_read = '1') else (others => 'Z');
 	tx_data <= data when (tx_write = '1') else (others => 'Z');
+	
+	--Allow autonegotiation to be interpreted when the transmitter/receiver aren't using the cable
+	ethernet_out <= tx_ether when (tx_request = '1') else pulse_out;
+	ethertx_enable <= tx_enable when (tx_request = '1') else pulse_out;
 	
 	--Map RAM
 	ram1_r1w0 <= not internal1_w1r0;

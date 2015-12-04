@@ -5,22 +5,22 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLCompiler" num="946" delta="unknown" >"C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/ethernet/tb_ethernet.vhd" Line 143: Actual for formal port <arg fmt="%s" index="1">address</arg> is neither a static name nor a globally static expression
+<msg type="warning" file="HDLCompiler" num="946" delta="unknown" >"C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/tb_ethernet.vhd" Line 143: Actual for formal port <arg fmt="%s" index="1">address</arg> is neither a static name nor a globally static expression
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="946" delta="unknown" >"C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/ethernet/tb_ethernet.vhd" Line 145: Actual for formal port <arg fmt="%s" index="1">cs</arg> is neither a static name nor a globally static expression
+<msg type="warning" file="HDLCompiler" num="946" delta="unknown" >"C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/tb_ethernet.vhd" Line 145: Actual for formal port <arg fmt="%s" index="1">cs</arg> is neither a static name nor a globally static expression
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="946" delta="unknown" >"C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/ethernet/tb_ethernet.vhd" Line 146: Actual for formal port <arg fmt="%s" index="1">we</arg> is neither a static name nor a globally static expression
+<msg type="warning" file="HDLCompiler" num="946" delta="unknown" >"C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/tb_ethernet.vhd" Line 146: Actual for formal port <arg fmt="%s" index="1">we</arg> is neither a static name nor a globally static expression
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="946" delta="unknown" >"C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/ethernet/tb_ethernet.vhd" Line 151: Actual for formal port <arg fmt="%s" index="1">address</arg> is neither a static name nor a globally static expression
+<msg type="warning" file="HDLCompiler" num="946" delta="unknown" >"C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/tb_ethernet.vhd" Line 151: Actual for formal port <arg fmt="%s" index="1">address</arg> is neither a static name nor a globally static expression
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="946" delta="unknown" >"C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/ethernet/tb_ethernet.vhd" Line 153: Actual for formal port <arg fmt="%s" index="1">cs</arg> is neither a static name nor a globally static expression
+<msg type="warning" file="HDLCompiler" num="946" delta="unknown" >"C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/tb_ethernet.vhd" Line 153: Actual for formal port <arg fmt="%s" index="1">cs</arg> is neither a static name nor a globally static expression
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="946" delta="unknown" >"C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/ethernet/tb_ethernet.vhd" Line 154: Actual for formal port <arg fmt="%s" index="1">we</arg> is neither a static name nor a globally static expression
+<msg type="warning" file="HDLCompiler" num="946" delta="unknown" >"C:/Users/Yakov/SkyDrive/School/University Stuff/ENEL500/ethernet/tb_ethernet.vhd" Line 154: Actual for formal port <arg fmt="%s" index="1">we</arg> is neither a static name nor a globally static expression
 </msg>
 
 </messages>

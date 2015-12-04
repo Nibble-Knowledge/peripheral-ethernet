@@ -9,31 +9,31 @@ Target Device  : xc3s250e
 Target Package : vq100
 Target Speed   : -4
 Mapper Version : spartan3e -- $Revision: 1.55 $
-Mapped Date    : Sun Nov 01 16:34:55 2015
+Mapped Date    : Mon Nov 16 19:46:09 2015
 
 Design Summary
 --------------
 Number of errors:      0
 Number of warnings:    0
 Logic Utilization:
-  Number of Slice Flip Flops:           213 out of   4,896    4%
-  Number of 4 input LUTs:               309 out of   4,896    6%
+  Number of Slice Flip Flops:           282 out of   4,896    5%
+  Number of 4 input LUTs:               423 out of   4,896    8%
 Logic Distribution:
-  Number of occupied Slices:            199 out of   2,448    8%
-    Number of Slices containing only related logic:     199 out of     199 100%
-    Number of Slices containing unrelated logic:          0 out of     199   0%
+  Number of occupied Slices:            281 out of   2,448   11%
+    Number of Slices containing only related logic:     281 out of     281 100%
+    Number of Slices containing unrelated logic:          0 out of     281   0%
       *See NOTES below for an explanation of the effects of unrelated logic.
-  Total Number of 4 input LUTs:         329 out of   4,896    6%
-    Number used as logic:               309
-    Number used as a route-thru:         20
+  Total Number of 4 input LUTs:         475 out of   4,896    9%
+    Number used as logic:               423
+    Number used as a route-thru:         52
 
   The Slice Logic Distribution report is not meaningful if the design is
   over-mapped for a non-slice resource or if Placement fails.
 
   Number of bonded IOBs:                 56 out of      66   84%
-  Number of BUFGMUXs:                     4 out of      24   16%
+  Number of BUFGMUXs:                     6 out of      24   25%
 
-Average Fanout of Non-Clock Nets:                3.45
+Average Fanout of Non-Clock Nets:                3.36
 
 Peak Memory Usage:  284 MB
 Total REAL time to MAP completion:  1 secs 
@@ -89,9 +89,9 @@ INFO:LIT:244 - All of the single ended outputs in this design are using slew
 
 Section 4 - Removed Logic Summary
 ---------------------------------
-   8 block(s) removed
+   9 block(s) removed
    2 block(s) optimized away
-   8 signal(s) removed
+   9 signal(s) removed
 
 Section 5 - Removed Logic
 -------------------------
@@ -109,7 +109,11 @@ the lines that are least indented (begin at the leftmost edge).
 The signal "TX/Mtrien_ready" is loadless and has been removed.
  Loadless block "TX/Mtrien_ready" (FF) removed.
   The signal "TX/Mtridata_ready_not0001" is loadless and has been removed.
-   Loadless block "TX/Mtridata_ready_not0001" (ROM) removed.
+   Loadless block "TX/Mtridata_ready_not0001" (MUX) removed.
+    The signal "N211" is loadless and has been removed.
+     Loadless block "TX/Mtridata_ready_not0001_F" (ROM) removed.
+    The signal "N212" is loadless and has been removed.
+     Loadless block "TX/Mtridata_ready_not0001_G" (ROM) removed.
   The signal "TX/_mux0000" is loadless and has been removed.
    Loadless block "TX/CurrState_FSM_Out1936" (ROM) removed.
     The signal "TX/CurrState_FSM_Out194" is loadless and has been removed.
@@ -120,14 +124,6 @@ The signal "TX/Mtrien_ready" is loadless and has been removed.
      Loadless block "TX/CurrState_FSM_Out1921" (ROM) removed.
     The signal "TX/CurrState_FSM_Out1926" is loadless and has been removed.
      Loadless block "TX/CurrState_FSM_Out1926" (ROM) removed.
-
-The trimmed logic reported below is either:
-   1. part of a cycle
-   2. part of disabled logic
-   3. a side-effect of other trimmed logic
-
-The signal "TX/Mtridata_ready_not0001_SW2/O" is unused and has been removed.
- Unused block "TX/Mtridata_ready_not0001_SW2" (ROM) removed.
 
 Optimized Block(s):
 TYPE 		BLOCK
