@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -o "C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/test232/tb_rs232_isim_beh.exe" -prj "C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/test232/tb_rs232_beh.prj" "work.tb_rs232" 

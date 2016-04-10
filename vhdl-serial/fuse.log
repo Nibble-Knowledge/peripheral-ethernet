@@ -1,0 +1,37 @@
+Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -o C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/test232/tb_rs232_isim_beh.exe -prj C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/test232/tb_rs232_beh.prj work.tb_rs232 
+ISim P.20131013 (signature 0x7708f090)
+Number of CPUs detected in this system: 8
+Turning on mult-threading, number of parallel sub-compilation jobs: 16 
+Determining compilation order of HDL files
+Parsing VHDL file "C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/test232/periph2pc.vhd" into library work
+Parsing VHDL file "C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/test232/periph2cpu.vhd" into library work
+Parsing VHDL file "C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/test232/pc2periph.vhd" into library work
+Parsing VHDL file "C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/test232/cpu2periph.vhd" into library work
+Parsing VHDL file "C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/test232/clock_divider.vhd" into library work
+Parsing VHDL file "C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/test232/rs232.vhd" into library work
+Parsing VHDL file "C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/test232/ram.vhd" into library work
+Parsing VHDL file "C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/test232/tb_rs232.vhd" into library work
+WARNING:HDLCompiler:946 - "C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/test232/tb_rs232.vhd" Line 111: Actual for formal port we is neither a static name nor a globally static expression
+Parsing VHDL file "C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/test232/dcm.vhd" into library work
+Starting static elaboration
+Completed static elaboration
+Compiling package standard
+Compiling package std_logic_1164
+Compiling package std_logic_arith
+Compiling package std_logic_unsigned
+Compiling package numeric_std
+Compiling architecture rtl of entity ram_sp_ar_aw [\ram_sp_ar_aw(8,15)\]
+Compiling architecture behavioral of entity clock_divider [\clock_divider(3333)\]
+Compiling architecture behavioral of entity clock_divider [\clock_divider(32)\]
+Compiling architecture behavioral of entity pc2periph [pc2periph_default]
+Compiling architecture behavioral of entity periph2pc [periph2pc_default]
+Compiling architecture behavioral of entity periph2cpu [periph2cpu_default]
+Compiling architecture behavioral of entity cpu2periph [cpu2periph_default]
+Compiling architecture behavioral of entity rs232 [rs232_default]
+Compiling architecture behavior of entity tb_rs232
+Time Resolution for simulation is 1ps.
+Waiting for 1 sub-compilation(s) to finish...
+Compiled 22 VHDL Units
+Built simulation executable C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/test232/tb_rs232_isim_beh.exe
+Fuse Memory Usage: 48644 KB
+Fuse CPU Usage: 812 ms

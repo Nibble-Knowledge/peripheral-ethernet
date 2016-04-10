@@ -1,5 +1,0 @@
-set -tmpdir "C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/ethernet/xst/projnav.tmp"
-set -xsthdpdir "C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/ethernet/xst"
-elaborate
--ifn crc.prj
--ifmt mixed

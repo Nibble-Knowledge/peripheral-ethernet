@@ -1,0 +1,2 @@
+xaw2spl {-intstyle ise} {C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/test232/ipcore_dir/dcm.xaw} 
+spl2sym -intstyle ise -family spartan3e dcm.spl {C:/Users/Yakov/OneDrive/School/University Stuff/ENEL500/test232/dcm.sym} 

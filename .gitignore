@@ -1,5 +1,4 @@
-vhdl/*/
-vhdl/*.exe
-vhdl/*isim*
-vhdl/*.html
-*YAKOV-SURFACE*
+vhdl-serial/*/
+vhdl-serial/*.exe
+vhdl-serial/*isim*
+vhdl-serial/*.html

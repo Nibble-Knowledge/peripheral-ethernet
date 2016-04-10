@@ -1,4 +1,0 @@
-vhdl work "memory.vhd"
-vhdl work "crc32.vhd"
-vhdl work "receiver.vhd"
-vhdl work "tb_receiver.vhd"

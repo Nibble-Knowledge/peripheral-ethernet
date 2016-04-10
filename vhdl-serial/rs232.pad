@@ -1,0 +1,130 @@
+Release 14.7 - par P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Tue Mar 29 21:30:55 2016
+
+
+# NOTE: This file is designed to be imported into a spreadsheet program
+# such as Microsoft Excel for viewing, printing and sorting. The |
+# character is used as the data field separator. This file is also designed
+# to support parsing.
+#
+INPUT FILE:       rs232_map.ncd
+OUTPUT FILE:      rs232.pad
+PART TYPE:        xc3s250e
+SPEED GRADE:      -4
+PACKAGE:          vq100
+
+Pinout by Pin Number:
+
+-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
+Pin Number|Signal Name|Pin Usage|Pin Name|Direction|IO Standard|IO Bank Number|Drive (mA)|Slew Rate|Termination|IOB Delay|Voltage|Constraint|IO Register|Signal Integrity|
+P1|||PROG_B||||||||||||
+P2||DIFFM|IO_L01P_3|UNUSED||3|||||||||
+P3||DIFFS|IO_L01N_3|UNUSED||3|||||||||
+P4|cpu_parity|IBUF|IO_L02P_3|INPUT|LVCMOS25*|3||||NONE||LOCATED|NO|NONE|
+P5|cpu_data<0>|IOB|IO_L02N_3/VREF_3|BIDIR|LVCMOS25*|3|12|SLOW|NONE**|IFD||LOCATED|YES|NONE|
+P6|||VCCINT||||||||1.2||||
+P7|||GND||||||||||||
+P8|||VCCO_3|||3|||||2.50||||
+P9|cpu_data<1>|IOB|IO_L03P_3/LHCLK0|BIDIR|LVCMOS25*|3|12|SLOW|NONE**|IFD||LOCATED|YES|NONE|
+P10|cpu_data<2>|IOB|IO_L03N_3/LHCLK1|BIDIR|LVCMOS25*|3|12|SLOW|NONE**|IFD||LOCATED|YES|NONE|
+P11|cpu_data<3>|IOB|IO_L04P_3/LHCLK2|BIDIR|LVCMOS25*|3|12|SLOW|NONE**|IFD||LOCATED|YES|NONE|
+P12||DIFFS|IO_L04N_3/LHCLK3/IRDY2|UNUSED||3|||||||||
+P13||IBUF|IP|UNUSED||3|||||||||
+P14|||GND||||||||||||
+P15|cpu_ready|IOB|IO_L05P_3/LHCLK4/TRDY2|TRISTATE|LVCMOS25*|3|12|SLOW|NONE**|||LOCATED|NO|NONE|
+P16||DIFFS|IO_L05N_3/LHCLK5|UNUSED||3|||||||||
+P17|reset|IBUF|IO_L06P_3/LHCLK6|INPUT|LVCMOS25*|3||||NONE||LOCATED|NO|NONE|
+P18|ram_data<7>|IOB|IO_L06N_3/LHCLK7|BIDIR|LVCMOS25*|3|12|SLOW|NONE**|IFD||LOCATED|YES|NONE|
+P19|||GND||||||||||||
+P20|||VCCO_3|||3|||||2.50||||
+P21|||VCCAUX||||||||2.5||||
+P22|ram_data<3>|IOB|IO_L07P_3|BIDIR|LVCMOS25*|3|12|SLOW|NONE**|IFD||LOCATED|YES|NONE|
+P23|ram_data<2>|IOB|IO_L07N_3|BIDIR|LVCMOS25*|3|12|SLOW|NONE**|IFD||LOCATED|YES|NONE|
+P24||DIFFM|IO_L01P_2/CSO_B|UNUSED||2|||||||||
+P25|ram_data<4>|IOB|IO_L01N_2/INIT_B|BIDIR|LVCMOS25*|2|12|SLOW|NONE**|IFD||LOCATED|YES|NONE|
+P26|ram_data<1>|IOB|IO_L02P_2/DOUT/BUSY|BIDIR|LVCMOS25*|2|12|SLOW|NONE**|IFD||LOCATED|YES|NONE|
+P27||DIFFS|IO_L02N_2/MOSI/CSI_B|UNUSED||2|||||||||
+P28|||VCCINT||||||||1.2||||
+P29|||GND||||||||||||
+P30||DIFFSI|IP/VREF_2|UNUSED||2|||||||||
+P31|||VCCO_2|||2|||||2.50||||
+P32|ram_data<5>|IOB|IO_L03P_2/D7/GCLK12|BIDIR|LVCMOS25*|2|12|SLOW|NONE**|IFD||LOCATED|YES|NONE|
+P33|ram_data<0>|IOB|IO_L03N_2/D6/GCLK13|BIDIR|LVCMOS25*|2|12|SLOW|NONE**|IFD||LOCATED|YES|NONE|
+P34|ram_data<6>|IOB|IO/D5|BIDIR|LVCMOS25*|2|12|SLOW|NONE**|IFD||LOCATED|YES|NONE|
+P35|ram_addr<0>|IOB|IO_L04P_2/D4/GCLK14|OUTPUT|LVCMOS25*|2|12|SLOW|NONE**|||LOCATED|YES|NONE|
+P36||DIFFS|IO_L04N_2/D3/GCLK15|UNUSED||2|||||||||
+P37|||GND||||||||||||
+P38||DIFFMI|IP_L05P_2/RDWR_B/GCLK0|UNUSED||2|||||||||
+P39||DIFFSI|IP_L05N_2/M2/GCLK1|UNUSED||2|||||||||
+P40|ram_addr<1>|IOB|IO_L06P_2/D2/GCLK2|OUTPUT|LVCMOS25*|2|12|SLOW|NONE**|||LOCATED|YES|NONE|
+P41||DIFFS|IO_L06N_2/D1/GCLK3|UNUSED||2|||||||||
+P42||IOB|IO/M1|UNUSED||2|||||||||
+P43||DIFFM|IO_L07P_2/M0|UNUSED||2|||||||||
+P44||DIFFS|IO_L07N_2/DIN/D0|UNUSED||2|||||||||
+P45|||VCCO_2|||2|||||2.50||||
+P46|||VCCAUX||||||||2.5||||
+P47||DIFFM|IO_L08P_2/VS2|UNUSED||2|||||||||
+P48||DIFFS|IO_L08N_2/VS1|UNUSED||2|||||||||
+P49||DIFFM|IO_L09P_2/VS0|UNUSED||2|||||||||
+P50||DIFFS|IO_L09N_2/CCLK|UNUSED||2|||||||||
+P51|||DONE||||||||||||
+P52|||GND||||||||||||
+P53|ram_addr<2>|IOB|IO_L01P_1|OUTPUT|LVCMOS25*|1|12|SLOW|NONE**|||LOCATED|YES|NONE|
+P54|ram_addr<10>|IOB|IO_L01N_1|OUTPUT|LVCMOS25*|1|12|SLOW|NONE**|||LOCATED|YES|NONE|
+P55|||VCCO_1|||1|||||2.50||||
+P56|||VCCINT||||||||1.2||||
+P57|ram_addr<3>|IOB|IO_L02P_1|OUTPUT|LVCMOS25*|1|12|SLOW|NONE**|||LOCATED|YES|NONE|
+P58|debug|IOB|IO_L02N_1|OUTPUT|LVCMOS25*|1|12|SLOW|NONE**|||UNLOCATED|NO|NONE|
+P59|||GND||||||||||||
+P60|ram_addr<4>|IOB|IO_L03P_1/RHCLK0|OUTPUT|LVCMOS25*|1|12|SLOW|NONE**|||LOCATED|YES|NONE|
+P61|ram_addr<11>|IOB|IO_L03N_1/RHCLK1|OUTPUT|LVCMOS25*|1|12|SLOW|NONE**|||LOCATED|YES|NONE|
+P62|ram_addr<5>|IOB|IO_L04P_1/RHCLK2|OUTPUT|LVCMOS25*|1|12|SLOW|NONE**|||LOCATED|YES|NONE|
+P63|ram_addr<9>|IOB|IO_L04N_1/RHCLK3/TRDY1|OUTPUT|LVCMOS25*|1|12|SLOW|NONE**|||LOCATED|YES|NONE|
+P64|||GND||||||||||||
+P65|ram_addr<6>|IOB|IO_L05P_1/RHCLK4/IRDY1|OUTPUT|LVCMOS25*|1|12|SLOW|NONE**|||LOCATED|YES|NONE|
+P66|ram_addr<8>|IOB|IO_L05N_1/RHCLK5|OUTPUT|LVCMOS25*|1|12|SLOW|NONE**|||LOCATED|YES|NONE|
+P67|ram_addr<7>|IOB|IO_L06P_1/RHCLK6|OUTPUT|LVCMOS25*|1|12|SLOW|NONE**|||LOCATED|YES|NONE|
+P68|ram_addr<13>|IOB|IO_L06N_1/RHCLK7|OUTPUT|LVCMOS25*|1|12|SLOW|NONE**|||LOCATED|YES|NONE|
+P69||IBUF|IP/VREF_1|UNUSED||1|||||||||
+P70|ram_addr<12>|IOB|IO_L07P_1|OUTPUT|LVCMOS25*|1|12|SLOW|NONE**|||LOCATED|YES|NONE|
+P71|ram_r1w0|IOB|IO_L07N_1|OUTPUT|LVCMOS25*|1|12|SLOW|NONE**|||LOCATED|NO|NONE|
+P72|||GND||||||||||||
+P73|||VCCO_1|||1|||||2.50||||
+P74|||VCCAUX||||||||2.5||||
+P75|||TMS||||||||||||
+P76|||TDO||||||||||||
+P77|||TCK||||||||||||
+P78||DIFFM|IO_L01P_0|UNUSED||0|||||||||
+P79|ram_addr<14>|IOB|IO_L01N_0|OUTPUT|LVCMOS25*|0|12|SLOW|NONE**|||LOCATED|YES|NONE|
+P80|||VCCINT||||||||1.2||||
+P81|||GND||||||||||||
+P82|||VCCO_0|||0|||||2.50||||
+P83|rd|IOB|IO_L02P_0/GCLK4|OUTPUT|LVCMOS25*|0|12|SLOW|NONE**|||LOCATED|NO|NONE|
+P84||DIFFS|IO_L02N_0/GCLK5|UNUSED||0|||||||||
+P85|td|IBUF|IO_L03P_0/GCLK6|INPUT|LVCMOS25*|0||||NONE||LOCATED|NO|NONE|
+P86||DIFFS|IO_L03N_0/GCLK7|UNUSED||0|||||||||
+P87|||GND||||||||||||
+P88||DIFFMI|IP_L04P_0/GCLK8|UNUSED||0|||||||||
+P89|clk32mhz|IBUF|IP_L04N_0/GCLK9|INPUT|LVCMOS25*|0||||NONE||LOCATED|NO|NONE|
+P90||DIFFM|IO_L05P_0/GCLK10|UNUSED||0|||||||||
+P91|clk_cpu|IBUF|IO_L05N_0/GCLK11|INPUT|LVCMOS25*|0||||NONE||LOCATED|NO|NONE|
+P92|cpu_read|IBUF|IO|INPUT|LVCMOS25*|0||||NONE||LOCATED|NO|NONE|
+P93|||GND||||||||||||
+P94|cpu_write|IBUF|IO_L06P_0|INPUT|LVCMOS25*|0||||NONE||LOCATED|NO|NONE|
+P95|cpu_cs|IBUF|IO_L06N_0/VREF_0|INPUT|LVCMOS25*|0||||NONE||LOCATED|NO|NONE|
+P96|||VCCAUX||||||||2.5||||
+P97|||VCCO_0|||0|||||2.50||||
+P98||DIFFM|IO_L07P_0|UNUSED||0|||||||||
+P99||DIFFS|IO_L07N_0/HSWAP|UNUSED||0|||||||||
+P100|||TDI||||||||||||
+
+-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
+
+* Default value.
+** This default Pullup/Pulldown value can be overridden in Bitgen. 
+****** Special VCCO requirements may apply. Please consult the device 
+       family datasheet for specific guideline on VCCO requirements. 
+
+

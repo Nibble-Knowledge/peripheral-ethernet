@@ -1,8 +1,0 @@
-INTSTYLE=ise
-INFILE=C:\Users\Yakov\SkyDrive\School\University Stuff\ENEL500\ethernet\ethernet.ncd
-OUTFILE=C:\Users\Yakov\SkyDrive\School\University Stuff\ENEL500\ethernet\ethernet.bit
-FAMILY=Spartan3E
-PART=xc3s250e-4vq100
-WORKINGDIR=C:\Users\Yakov\SkyDrive\School\University Stuff\ENEL500\ethernet
-LICENSE=WebPack
-USER_INFO=211004926_0_0_670

@@ -1,0 +1,7 @@
+vhdl work "C:\Users\Yakov\OneDrive\School\University Stuff\ENEL500\test232\periph2pc.vhd"
+vhdl work "C:\Users\Yakov\OneDrive\School\University Stuff\ENEL500\test232\periph2cpu.vhd"
+vhdl work "C:\Users\Yakov\OneDrive\School\University Stuff\ENEL500\test232\pc2periph.vhd"
+vhdl work "C:\Users\Yakov\OneDrive\School\University Stuff\ENEL500\test232\cpu2periph.vhd"
+vhdl work "C:\Users\Yakov\OneDrive\School\University Stuff\ENEL500\test232\clock_divider.vhd"
+vhdl work "C:\Users\Yakov\OneDrive\School\University Stuff\ENEL500\test232\rs232.vhd"
+vhdl work "C:\Users\Yakov\OneDrive\School\University Stuff\ENEL500\test232\dcm.vhd"

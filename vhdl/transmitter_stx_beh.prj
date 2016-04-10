@@ -1,3 +1,0 @@
-vhdl isim_temp "memory.vhd"
-vhdl isim_temp "crc32.vhd"
-vhdl isim_temp "transmitter.vhd"

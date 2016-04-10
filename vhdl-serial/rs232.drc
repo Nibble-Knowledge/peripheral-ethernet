@@ -1,0 +1,19 @@
+Release 14.7 Drc P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Tue Mar 29 21:31:02 2016
+
+drc -z rs232.ncd rs232.pcf
+
+WARNING:PhysDesignRules:372 - Gated clock. Clock net cpuin_write is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to
+   control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net Mtrien_ram_data_not0001 is
+   sourced by a combinatorial pin. This is not good design practice. Use the CE
+   pin to control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:367 - The signal <clk_cpu_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <cpu_parity_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+DRC detected 0 errors and 4 warnings.  Please see the previously displayed
+individual error or warning messages for more details.

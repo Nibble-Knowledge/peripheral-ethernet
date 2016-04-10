@@ -1,0 +1,7 @@
+vhdl work "periph2pc.vhd"
+vhdl work "periph2cpu.vhd"
+vhdl work "pc2periph.vhd"
+vhdl work "cpu2periph.vhd"
+vhdl work "clock_divider.vhd"
+vhdl work "rs232.vhd"
+vhdl work "dcm.vhd"
